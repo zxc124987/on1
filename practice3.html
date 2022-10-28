@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Whack A Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .game {
+      /* opacity: 0; */
+    }
+
+    html {
+      background: initial;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+  <button>Start!</button>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+  <script>
+    const holes = document.querySelectorAll('.hole');
+    const scoreBoard = document.querySelector('.score');
+    const moles = [...document.querySelectorAll('.mole')];
+    let score = 0;
+    let timeUp = true;
+
+    function setScore(s) {
+      score = s;
+      scoreBoard.textContent = score;
+    }
+
+    function startGame() {
+      setScore(0)
+      timeUp = false;
+      showRandomMole();
+      setTimeout(() => {
+        timeUp = true
+        alert("Time's Up !!!")
+      }, 10000)
+    }
+
+    const status = moles.reduce((prev, current, index) => {
+      prev[index] = false;
+      return prev;
+    }, {})
+
+    const molesProxy = new Proxy(status, {
+      get(target, index) {
+        return target[index];
+      },
+      set(target, index, value) {
+        target[index] = value;
+
+        moles[index].removeEventListener("click", clickHandler);
+        if (value) {
+          moles[index].classList.add("up");
+          moles[index].addEventListener("click", clickHandler);
+        } else {
+          moles[index].classList.remove("up");
+        }
+      }
+    })
+
+    function clickHandler() {
+      if (molesProxy[moles.indexOf(this)]) {
+        setScore(score + 1)
+        molesProxy[moles.indexOf(this)] = false
+      }
+    }
+
+    function showRandomMole() {
+      const mole = Math.floor(Math.random() * moles.length);
+      const time = Math.floor(Math.random() * (1000 - 500) + 500);
+
+      if (molesProxy[mole]) return showRandomMole();
+
+      molesProxy[mole] = true;
+
+      setTimeout(() => {
+        if (!timeUp) showRandomMole();
+        molesProxy[mole] = false
+      }, time)
+    }
+
+    document.querySelector("button").addEventListener("click", startGame);
+
+  </script>
+</body>
+
+</html>
