@@ -1,106 +1,331 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-TW">
 
 <head>
   <meta charset="UTF-8">
-  <title>Whack A Mole!</title>
-  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website</title>
+
+  <!-- vue vuetify -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div id="app">
+    <v-app id="inspire">
 
-  <h1>Whack-a-mole! <span class="score">0</span></h1>
-  <button>Start!</button>
+      <div class="preload" style="background-image: url('images/loading.gif')"></div>
 
-  <div class="game">
-    <div class="hole hole1">
-      <div class="mole"></div>
-    </div>
-    <div class="hole hole2">
-      <div class="mole"></div>
-    </div>
-    <div class="hole hole3">
-      <div class="mole"></div>
-    </div>
-    <div class="hole hole4">
-      <div class="mole"></div>
-    </div>
-    <div class="hole hole5">
-      <div class="mole"></div>
-    </div>
-    <div class="hole hole6">
-      <div class="mole"></div>
-    </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="pic in pictures">
+            <div class="img" :style="{ 'background-image' : 'url(' + pic.src + ')' }"></div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li v-for="(el, i) in navs" :key="i">
+            <a :href="el.link">{{ el.text }}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="news">
+        <div class="container">
+          <h2 class="title">news</h2>
+          <ul>
+            <li v-for="(el, i) in news" :key="i">
+              <a :href="el.link">
+                <div class="number">{{ i + 1 }}</div>
+                <div class="date">{{ el.date }}</div>
+                <div class="sub">{{ el.sub }}</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="others">
+        <div class="container">
+          <h2 class="title">others</h2>
+          <div class="card-group">
+            <div class="card wow" v-for="(el, i) in others" :key="i">
+              <div class="img-container rellax" data-rellax-speed="2">
+                <div class="img-box">
+                  <div class="img" :style="{'background-image': 'url('+ el.img +')'}"></div>
+                </div>
+              </div>
+              <div class="text-container">
+                <div class="text-title">{{ el.title }}</div>
+                <div class="text-desc">{{ el.desc }}</div>
+                <a href="javascript:;" class="more">more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="container">
+          <h2 class="title">about</h2>
+          <ul>
+            <li v-for="(el, i) in about" :key="i">
+              <div class="title">{{ el.date }}</div>
+              <div class="desc">{{ el.desc }}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="container">
+          <h2 class="title">contact</h2>
+          <div class="social-group">
+            <ul>
+              <li v-for="(el, i) in contact" :key="i">
+                <a :class="el.text" :href="el.link" target="_blank">
+                  <i :class="el.class"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- <audio controls autoplay>
+              <source src="images/IMG_3181.MOV" type="audio/ogg">
+            </audio> -->
+          </div>
+        </div>
+      </div>
+
+      <footer>Copyright &copy; {{ year }} Hank.</footer>
+
+    </v-app>
   </div>
 
+  <!-- vue vuetify -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- wow -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <!-- rellax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
   <script>
-    const holes = document.querySelectorAll('.hole');
-    const scoreBoard = document.querySelector('.score');
-    const moles = [...document.querySelectorAll('.mole')];
-    let score = 0;
-    let timeUp = true;
+    ; (function () {
+      const pictures = [
+        {
+          src: 'https://picsum.photos/1400/1000/?blur=1'
+        },
+        {
+          src: 'https://picsum.photos/1400/1000/?blur=2'
+        },
+        {
+          src: 'https://picsum.photos/1400/1000/?blur=3'
+        },
+        {
+          src: 'https://picsum.photos/1400/1000/?blur=4'
+        },
+        {
+          src: 'https://picsum.photos/1400/1000/?blur=5'
+        },
+      ];
 
-    function setScore(s) {
-      score = s;
-      scoreBoard.textContent = score;
-    }
+      const navs = [
+        {
+          text: "home",
+          link: "javascript:;"
+        },
+        {
+          text: "about",
+          link: "javascript:;"
+        },
+        {
+          text: "others",
+          link: "javascript:;"
+        },
+        {
+          text: "news",
+          link: "javascript:;"
+        },
+        {
+          text: "contact",
+          link: "javascript:;"
+        },
+      ]
 
-    function startGame() {
-      setScore(0)
-      timeUp = false;
-      showRandomMole();
-      setTimeout(() => {
-        timeUp = true
-        alert("Time's Up !!!")
-      }, 10000)
-    }
+      const news = [
+        {
+          date: "2022-10-29",
+          sub: "OOOOOO",
+          link: "javascript:;"
+        },
+        {
+          date: "2022-10-30",
+          sub: "XXXXXX",
+          link: "javascript:;"
+        },
+        {
+          date: "2022-10-31",
+          sub: "YYYYYY",
+          link: "javascript:;"
+        },
+      ]
 
-    const status = moles.reduce((prev, current, index) => {
-      prev[index] = false;
-      return prev;
-    }, {})
+      const others = [
+        {
+          img: "images/S__18063584.jpg",
+          title: "期待、失望，初探台南六甲落羽松",
+          desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容"
+        },
+        {
+          img: "images/IMG_7530.JPG",
+          title: "漁光島、回憶，畢業前的拍照",
+          desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容"
+        },
+      ]
 
-    const molesProxy = new Proxy(status, {
-      get(target, index) {
-        return target[index];
-      },
-      set(target, index, value) {
-        target[index] = value;
+      const about = [
+        {
+          date: "1996/11",
+          desc: "出生👶🏻"
+        },
+        {
+          date: "2012/6",
+          desc: "高雄市立莊敬國小畢業"
+        },
+        {
+          date: "2014/6",
+          desc: "高雄市大仁國中畢業"
+        },
+        {
+          date: "2016/6",
+          desc: "高雄市立志中學資訊科畢業"
+        },
+        {
+          date: "2019/7",
+          desc: "台南私立崑山大學資訊工程系畢業"
+        },
+        {
+          date: "2020/3",
+          desc: "當兵退伍"
+        },
+      ]
 
-        moles[index].removeEventListener("click", clickHandler);
-        if (value) {
-          moles[index].classList.add("up");
-          moles[index].addEventListener("click", clickHandler);
-        } else {
-          moles[index].classList.remove("up");
-        }
-      }
-    })
+      const contact = [
+        {
+          text: "facebook",
+          class: "fa-brands fa-facebook-f",
+          link: "https://www.facebook.com/profile.php?id=100001870960386"
+        },
+        {
+          text: "instagram",
+          class: "fa-brands fa-instagram",
+          link: "https://www.instagram.com/hcm_hank/?hl=zh-tw"
+        },
+      ]
 
-    function clickHandler() {
-      if (molesProxy[moles.indexOf(this)]) {
-        setScore(score + 1)
-        molesProxy[moles.indexOf(this)] = false
-      }
-    }
+      new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+          return {
+            overlay: true,
+            pictures: pictures,
+            navs: navs,
+            news: news,
+            others: others,
+            about: about,
+            contact: contact,
+            year: null,
+          }
+        },
+        methods: {
+          loadingHandler() {
+            const preload = document.querySelector(".preload");
+            preload.style.display = "none";
+          },
+          scrollHandler() {
+            const wt = window.scrollY;
+            const nav = document.querySelector(".nav");
+            const carousel = document.querySelector(".swiper-container");
 
-    function showRandomMole() {
-      const mole = Math.floor(Math.random() * moles.length);
-      const time = Math.floor(Math.random() * (1000 - 500) + 500);
+            if (window.scrollY >= carousel.offsetHeight) {
+              nav.classList.add("fixed");
+            } else {
+              nav.classList.remove("fixed");
+            }
+          },
+        },
+        mounted() {
+          window.addEventListener("load", this.loadingHandler);
+          window.addEventListener("scroll", this.scrollHandler);
 
-      if (molesProxy[mole]) return showRandomMole();
+          const swiper = new Swiper('.swiper-container', {
+            speed: 400,
+            slidesPerView: 1,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+              disabledClass: "disabled"
+            },
+          });
 
-      molesProxy[mole] = true;
+          wow = new WOW(
+            {
+              boxClass: 'wow',
+              animateClass: 'animated',
+              offset: 200,
+              mobile: false,
+              live: true
+            }
+          )
+          wow.init();
 
-      setTimeout(() => {
-        if (!timeUp) showRandomMole();
-        molesProxy[mole] = false
-      }, time)
-    }
+          var rellax = new Rellax('.rellax', {
+            center: true
+          });
 
-    document.querySelector("button").addEventListener("click", startGame);
-
+          this.year = new Date().getFullYear();
+        },
+        destroyed() {
+          window.removeEventListener("load", this.loadingHandler);
+          window.removeEventListener("scroll", this.scrollHandler);
+        },
+      })
+    })()
   </script>
 </body>
 
