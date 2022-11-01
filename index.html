@@ -76,7 +76,7 @@
           <h2 class="title">others</h2>
           <div class="card-group">
             <div class="card wow" v-for="(el, i) in others" :key="i">
-              <div class="img-container rellax" data-rellax-speed="2">
+              <div class="img-container rellax" data-rellax-speed="2" data-rellax-mobile-speed="0">
                 <div class="img-box">
                   <div class="img" :style="{'background-image': 'url('+ el.img +')'}"></div>
                 </div>
@@ -308,7 +308,7 @@
               boxClass: 'wow',
               animateClass: 'animated',
               offset: 200,
-              mobile: false,
+              mobile: true,
               live: true
             }
           )

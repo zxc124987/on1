@@ -39,6 +39,11 @@ a {
   background-position: center;
   background-repeat: no-repeat;
 }
+@media only screen and (max-width: 580px) {
+  .preload {
+    background-size: 35%;
+  }
+}
 
 .swiper-container {
   position: relative;
@@ -48,6 +53,11 @@ a {
   position: relative;
   padding-top: 43%;
   height: 0;
+}
+@media only screen and (max-width: 580px) {
+  .swiper-container .swiper-wrapper .swiper-slide {
+    padding-top: 67%;
+  }
 }
 .swiper-container .swiper-wrapper .swiper-slide .img {
   position: absolute;
@@ -132,6 +142,11 @@ a {
 .news .container {
   margin: 50px auto;
 }
+@media only screen and (max-width: 580px) {
+  .news .container {
+    margin: 25px 0px;
+  }
+}
 .news .container .title {
   font-size: 48px !important;
   font-weight: bold;
@@ -139,8 +154,19 @@ a {
   text-transform: uppercase;
   margin-bottom: 50px;
 }
+@media only screen and (max-width: 580px) {
+  .news .container .title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
+}
 .news .container ul li:not(:last-child) {
   margin-bottom: 20px;
+}
+@media only screen and (max-width: 580px) {
+  .news .container ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 .news .container ul li a {
   display: flex;
@@ -176,12 +202,23 @@ a {
 .others .container {
   margin: 50px auto;
 }
+@media only screen and (max-width: 580px) {
+  .others .container {
+    margin: 25px 0px;
+  }
+}
 .others .container .title {
   font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
   margin-bottom: 50px;
+}
+@media only screen and (max-width: 580px) {
+  .others .container .title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
 }
 .others .container .card-group {
   max-width: 700px;
@@ -284,12 +321,23 @@ a {
 .about .container {
   margin: 50px auto;
 }
+@media only screen and (max-width: 580px) {
+  .about .container {
+    margin: 25px 0px;
+  }
+}
 .about .container .title {
   font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
   margin-bottom: 50px;
+}
+@media only screen and (max-width: 580px) {
+  .about .container .title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
 }
 .about .container ul {
   display: flex;
@@ -347,12 +395,23 @@ a {
 .contact .container {
   margin: 50px auto;
 }
+@media only screen and (max-width: 580px) {
+  .contact .container {
+    margin: 25px 0px;
+  }
+}
 .contact .container .title {
   font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
   margin-bottom: 50px;
+}
+@media only screen and (max-width: 580px) {
+  .contact .container .title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
 }
 .contact .container .social-group ul {
   display: flex;
