@@ -51,10 +51,59 @@
       <nav class="nav">
         <ul>
           <li v-for="(el, i) in navs" :key="i">
-            <a :href="el.link">{{ el.text }}</a>
+            <a :href="el.link" @click="scrollToHandler($event)">{{ el.text }}</a>
           </li>
         </ul>
       </nav>
+
+      <div class="profile">
+        <div class="container">
+          <h2 class="title">profile</h2>
+          <div class="img-container">
+            <div class="img-box">
+              <div class="img" style="background-image: url('images/S__25264243.jpg')"></div>
+            </div>
+          </div>
+          <div class="typed">
+            <div id="typed-strings">
+              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
+            </div>
+            <span id="typed"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ability">
+        <div class="container">
+          <h2 class="title">ability</h2>
+          <div class="circle-group">
+            <div class="circle-box">
+              <div class="circle">
+                <div class="circle-desc">
+                  <h3 class="circle-desc-title">使用技術</h3>
+                  <div class="circle-desc-content">HTML、CSS、Javascript、Jquery、SASS、ES6、Vue2、Angular9</div>
+                </div>
+              </div>
+            </div>
+            <div class="circle-box">
+              <div class="circle">
+                <div class="circle-desc">
+                  <h3 class="circle-desc-title">使用工具</h3>
+                  <div class="circle-desc-content">GIT、gulp、Trello、HackMD、Notion</div>
+                </div>
+              </div>
+            </div>
+            <div class="circle-box">
+              <div class="circle">
+                <div class="circle-desc">
+                  <h3 class="circle-desc-title">使用套件</h3>
+                  <div class="circle-desc-content">vuetify、vue material、bootstrapVue、admin core ui</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="news">
         <div class="container">
@@ -138,6 +187,9 @@
 
   <!-- rellax -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+  <!-- typed js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <script>
     ; (function () {
@@ -253,6 +305,10 @@
         },
       ]
 
+      const typedText = [
+        '我是名前端工程師', '喜歡製作有趣的網站', '熱愛戶外走走體驗大自然', '平常聽聽音樂', '與朋友喝喝咖啡吃吃下午茶', '理性大於感性', '到了深夜時會變得非常感性'
+      ]
+
       new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -266,6 +322,7 @@
             about: about,
             contact: contact,
             year: null,
+            typedText: typedText,
           }
         },
         methods: {
@@ -283,6 +340,20 @@
             } else {
               nav.classList.remove("fixed");
             }
+          },
+          scrollToHandler(e) {
+            const target = e.target.innerText;
+            const containerTitles = document.querySelectorAll(".container h2.title");
+            const navHeight = document.querySelector(".nav").offsetHeight;
+
+            containerTitles.forEach(title => {
+              if (target === title.innerText) {
+                window.scrollTo({
+                  top: title.offsetTop - navHeight - 50,
+                  behavior: "smooth"
+                })
+              }
+            })
           },
         },
         mounted() {
@@ -316,6 +387,12 @@
 
           var rellax = new Rellax('.rellax', {
             center: true
+          });
+
+          var typed = new Typed('#typed', {
+            stringsElement: '#typed-strings',
+            typeSpeed: 500,
+            loop: true,
           });
 
           this.year = new Date().getFullYear();
