@@ -110,7 +110,7 @@
           <h2 class="title">news</h2>
           <ul>
             <li v-for="(el, i) in news" :key="i">
-              <a :href="el.link">
+              <a :href="el.link" target="_blank">
                 <div class="number">{{ i + 1 }}</div>
                 <div class="date">{{ el.date }}</div>
                 <div class="sub">{{ el.sub }}</div>
@@ -175,7 +175,7 @@
               </li>
             </ul>
             <audio controls autoplay>
-              <source src="images/Its Time For The Flight.mp4" type="video/mp4">
+              <source src="images/song.mp4" type="video/mp4">
             </audio>
           </div>
         </div>
@@ -246,6 +246,16 @@
       ]
 
       const news = [
+        {
+          date: "2022-11-01",
+          sub: "今天聽到一首觸動心底的歌",
+          link: "https://www.youtube.com/watch?v=8ux25IcLr8w&ab_channel=EHPMusicChannel"
+        },
+        {
+          date: "2022-11-01",
+          sub: "進到11月了",
+          link: "javascript:;"
+        },
         {
           date: "2022-10-10",
           sub: "每年都會有一個考驗",
