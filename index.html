@@ -89,7 +89,7 @@
               <div class="circle">
                 <div class="circle-desc">
                   <h3 class="circle-desc-title">使用工具</h3>
-                  <div class="circle-desc-content">GIT、gulp、Trello、HackMD、Notion</div>
+                  <div class="circle-desc-content">GIT、gulp、axios、Trello、HackMD、Notion</div>
                 </div>
               </div>
             </div>
@@ -125,9 +125,10 @@
           <h2 class="title">others</h2>
           <div class="card-group">
             <div class="card wow" v-for="(el, i) in others" :key="i">
-              <div class="img-container rellax" data-rellax-speed="2" data-rellax-mobile-speed="0">
+              <div class="img-container rellax" data-rellax-speed="2" data-rellax-mobile-speed="0" data-rellax-xs-speed="0">
                 <div class="img-box">
-                  <div class="img" :style="{'background-image': 'url('+ el.img +')'}"></div>
+                  <!-- :style="{'background-image': 'url('+ el.img +')'}" -->
+                  <div class="img"></div>
                 </div>
               </div>
               <div class="text-container">
@@ -155,6 +156,16 @@
       <div class="contact">
         <div class="container">
           <h2 class="title">contact</h2>
+          <div class="svg-text">
+            <svg viewBox="0 0 1000 300">
+              <text id="mytext" x="50%" y="50%" text-anchor="middle" fill="none">Hank</text>
+              <use xlink:href="#mytext" class="copy copy1"></use>
+              <use xlink:href="#mytext" class="copy copy2"></use>
+              <use xlink:href="#mytext" class="copy copy3"></use>
+              <use xlink:href="#mytext" class="copy copy4"></use>
+              <use xlink:href="#mytext" class="copy copy5"></use>
+            </svg>
+          </div>
           <div class="social-group">
             <ul>
               <li v-for="(el, i) in contact" :key="i">
@@ -163,9 +174,9 @@
                 </a>
               </li>
             </ul>
-            <!-- <audio controls autoplay>
-              <source src="images/IMG_3181.MOV" type="audio/ogg">
-            </audio> -->
+            <audio controls autoplay>
+              <source src="images/Its Time For The Flight.mp4" type="video/mp4">
+            </audio>
           </div>
         </div>
       </div>

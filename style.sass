@@ -299,6 +299,8 @@ a
               text-align: center
 
 .news
+  background-color: #f2f2f2
+
   .container
     margin: 50px auto
 
@@ -353,8 +355,6 @@ a
             transition: all .3s
 
 .others
-  background-color: #f2f2f2
-
   .container
     margin: 50px auto
 
@@ -382,6 +382,9 @@ a
         &:not(:last-child)
           margin-bottom: 100px
 
+          +breakpoint(mobile-landscape)
+            margin-bottom: 50px
+
         .img-container
           width: 50%
           z-index: 1
@@ -406,6 +409,9 @@ a
           z-index: 2
           margin: 20px
 
+          +breakpoint(mobile-landscape)
+            margin: 10px
+
           .text-title
             font-size: 24px
             font-weight: bold
@@ -413,6 +419,9 @@ a
             text-shadow: 3px 3px 3px #f2f2f2
             margin-left: -50px
             margin-bottom: 30px
+
+            +breakpoint(mobile-landscape)
+              margin-bottom: 15px
 
           .text-desc
             font-size: 18px
@@ -423,6 +432,9 @@ a
             display: -webkit-box
             -webkit-line-clamp: 8
             -webkit-box-orient: vertical
+
+            +breakpoint(mobile)
+              -webkit-line-clamp: 5
 
           .more
             display: inline-block
@@ -466,6 +478,8 @@ a
               margin-right: 0 !important
 
 .about
+  background-color: #f2f2f2
+
   .container
     margin: 50px auto
 
@@ -533,8 +547,6 @@ a
           font-size: 14px
 
 .contact
-  background-color: #f2f2f2
-
   .container
     margin: 50px auto
 
@@ -558,6 +570,7 @@ a
       ul
         display: flex
         align-items: center
+        justify-content: center
 
         li
           &:not(:last-child)
@@ -578,6 +591,20 @@ a
                 i
                   color: #dd5a3d
 
+.svg-text
+  width: 100%
+
+  svg
+    font-size: 150px
+
+    .copy
+      fill: none
+      stroke: #333333
+      stroke-width: 3px
+      stroke-dasharray: 50%
+      stroke-dashoffset: 10%
+      animation: textanimation 7s linear infinite
+
 footer
   text-align: center
   background-color: #000000
@@ -585,5 +612,10 @@ footer
   padding: 10px 0
 
 audio
-  // opacity: 0
-  // position: fixed
+  opacity: 0
+  position: fixed
+
+// keyframe
+@keyframes textanimation
+  100%
+    stroke-dashoffset: -35%
