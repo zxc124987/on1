@@ -783,6 +783,7 @@ footer {
 
 .article-page {
   background-color: #dfdfdf;
+  height: 100vh;
 }
 .article-page .container .row .block-left .v-card .d-flex div .v-card__title {
   color: #ffffff;

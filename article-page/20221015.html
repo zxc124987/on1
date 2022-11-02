@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>20221102</title>
+  <title>20221015</title>
 
   <!-- vue vuetify -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -99,15 +99,15 @@
               </div>
               <div class="col-8 block-right">
                 <div class="col">
-                  <h2 class="main-title">{{ article.title }}</h2>
-                  <div class="main-content">{{ article.artist }}
+                  <h2 class="main-title" v-if="article.title">{{ article.title }}</h2>
+                  <div class="main-content" v-if="article.artist">{{ article.artist }}
                   </div>
                   <div class="img-container" v-if="article.pic">
                     <div class="img-box">
                       <div class="img" :style="{'background-image': 'url('+ article.pic +')'}"></div>
                     </div>
                   </div>
-                  <div class="video-container">
+                  <div class="video-container" v-if="article.src">
                     <div class="video-box">
                       <!-- <iframe :src="article.video"></iframe> -->
                       <video controls :src="article.src"></video>
@@ -170,11 +170,11 @@
       ]
 
       const article = {
-        title: "我放下所有回憶，來成群你的愛情",
-        artist: "好幾個朋友丟給我，詞曲都很讚",
+        title: "😕",
+        artist: "",
         pic: "",
-        video: `https://www.youtube.com/embed/8ux25IcLr8w`,
-        src: "../images/嘉賓.mp4"
+        video: ``,
+        src: ""
       }
 
       new Vue({
