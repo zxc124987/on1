@@ -31,9 +31,12 @@ a
   top: 0
   left: 0
   z-index: 9999
-  background-size: 25%
+  background-size: 15%
   background-position: center
   background-repeat: no-repeat
+
+  +breakpoint(pad-landscape)
+    background-size: 20%
 
   +breakpoint(mobile-landscape)
     background-size: 35%
@@ -275,6 +278,10 @@ a
           padding-top: 70%
           margin-bottom: 15px
 
+          &:last-child
+            &:before
+              height: 100%
+
           &:before
             content: ""
             position: absolute
@@ -356,58 +363,85 @@ a
     +breakpoint(mobile-landscape)
       margin: 15px 0px
 
-    .title
-      font-size: 48px !important
-      font-weight: bold
-      font-family: "helvetica neue" !important
-      text-transform: uppercase
-      margin-bottom: 50px
+    .row
+      .col
+        +breakpoint(pad-portrait)
+          width: 100%
+          flex: 100%
+          max-width: 100%
 
-      +breakpoint(mobile-landscape)
-        font-size: 30px !important
-        margin-bottom: 20px
+          &:not(:last-child)
+            margin-bottom: 30px
 
-    ul
-      li
-        &:not(:last-child)
-          margin-bottom: 20px
+        .title
+          font-size: 48px !important
+          font-weight: bold
+          font-family: "helvetica neue" !important
+          text-transform: uppercase
+          margin-bottom: 50px
 
           +breakpoint(mobile-landscape)
-            margin-bottom: 10px
+            font-size: 30px !important
+            margin-bottom: 20px
 
-        a
-          display: flex
-          align-items: center
+        ul
+          li
+            &:not(:last-child)
+              margin-bottom: 20px
 
-          &:hover
-            .date,
-            .sub
-              color: #818789
+              +breakpoint(mobile-landscape)
+                margin-bottom: 10px
 
-          .number
-            font-size: 40px
-            font-weight: 500
-            color: #b69a68
-            margin-right: 20px
+            a
+              display: flex
+              align-items: center
+              position: relative
 
-          .date
-            font-size: 20px
-            font-weight: 500
-            color: #b69a68
-            margin-right: 15px
-            transition: all .3s
+              &:before
+                content: ""
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                height: 2px
+                background-color: #b69a68
+                transform: scale(0, 1)
+                transform-origin: right top
+                transition: transform .7s ease-in-out 0s
 
-            +breakpoint(mobile)
-              font-size: 18px
+              &:hover
+                &:before
+                  transform-origin: left top
+                  transform: scale(1, 1)
 
-          .sub
-            font-size: 18px
-            font-weight: 500
-            color: #818789
-            transition: all .3s
+                .date,
+                .sub
+                  color: #818789
 
-            +breakpoint(mobile)
-              font-size: 16px
+              .number
+                font-size: 40px
+                font-weight: 500
+                color: #b69a68
+                margin-right: 20px
+
+              .date
+                font-size: 20px
+                font-weight: 500
+                color: #b69a68
+                margin-right: 15px
+                transition: all .3s
+
+                +breakpoint(mobile)
+                  font-size: 18px
+
+              .sub
+                font-size: 18px
+                font-weight: 500
+                color: #818789
+                transition: all .3s
+
+                +breakpoint(mobile)
+                  font-size: 16px
 
 .others
   .container
@@ -749,7 +783,7 @@ audio
           width: 100% !important
           flex: 100%
           max-width: 100%
-          
+
         .col
           .main-title
             margin-bottom: 20px
