@@ -558,20 +558,20 @@ a {
 .others .container .card-group .card:first-child.animated .img-container .img-box {
   -webkit-animation: fadeInRight;
           animation: fadeInRight;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 .others .container .card-group .card:first-child.animated .text-container .text-title {
   -webkit-animation: fadeInRight;
           animation: fadeInRight;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
 }
 .others .container .card-group .card:first-child.animated .text-container .text-desc {
   -webkit-animation: fadeInRight;
           animation: fadeInRight;
-  -webkit-animation-duration: 0.8s;
-          animation-duration: 0.8s;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
 }
 .others .container .card-group .card:first-child.animated .text-container .more {
   -webkit-animation: fadeInRight;
@@ -596,20 +596,20 @@ a {
 .others .container .card-group .card:last-child.animated .img-container .img-box {
   -webkit-animation: fadeInLeft;
           animation: fadeInLeft;
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
 }
 .others .container .card-group .card:last-child.animated .text-container .text-title {
   -webkit-animation: fadeInLeft;
           animation: fadeInLeft;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
 }
 .others .container .card-group .card:last-child.animated .text-container .text-desc {
   -webkit-animation: fadeInLeft;
           animation: fadeInLeft;
-  -webkit-animation-duration: 0.8s;
-          animation-duration: 0.8s;
+  -webkit-animation-duration: 0.9s;
+          animation-duration: 0.9s;
 }
 .others .container .card-group .card:last-child.animated .text-container .more {
   -webkit-animation: fadeInLeft;
