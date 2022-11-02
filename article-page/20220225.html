@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>20221015</title>
+  <title>20220225</title>
 
   <!-- vue vuetify -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -109,8 +109,12 @@
                   </div>
                   <div class="video-container" v-if="article.src">
                     <div class="video-box">
-                      <!-- <iframe frameborder :src="article.video"></iframe> -->
                       <video controls :src="article.src"></video>
+                    </div>
+                  </div>
+                  <div class="video-container" v-if="article.video">
+                    <div class="video-box">
+                      <iframe frameborder :src="article.video"></iframe>
                     </div>
                   </div>
                 </div>
@@ -170,10 +174,10 @@
       ]
 
       const article = {
-        title: "😕",
-        artist: "",
+        title: "面臨兩間公司的選擇",
+        artist: "一間是網評極差的公司，另一間則沒有評論",
         pic: "",
-        video: ``,
+        video: "https://www.youtube.com/embed/x0qcqPcEfoc",
         src: ""
       }
 
