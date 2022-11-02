@@ -59,18 +59,25 @@
       <div class="profile">
         <div class="container">
           <h2 class="title">profile</h2>
-          <h3 class="name">I'm Hank</h3>
+          <h3 class="name">
+            <div class="svg-text">
+              <svg viewBox="0 0 3000 300">
+                <text id="mytext" x="50%" y="100%" text-anchor="middle" fill="none">Hank</text>
+                <use xlink:href="#mytext" class="copy copy1"></use>
+                <use xlink:href="#mytext" class="copy copy2"></use>
+                <use xlink:href="#mytext" class="copy copy3"></use>
+                <use xlink:href="#mytext" class="copy copy4"></use>
+                <use xlink:href="#mytext" class="copy copy5"></use>
+              </svg>
+            </div>
+          </h3>
           <div class="img-container">
             <div class="img-box">
-              <!-- style="background-image: url('images/S__25264243.jpg')" -->
-              <div class="img"></div>
+              <div class="img" style="background-image: url('images/S__25264243.jpg')"></div>
             </div>
           </div>
-          <div class="typed">
-            <div id="typed-strings">
-              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
-            </div>
-            <span id="typed"></span>
+          <div class="info">
+            我叫 <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動校功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
           </div>
         </div>
       </div>
@@ -158,15 +165,11 @@
       <div class="contact">
         <div class="container">
           <h2 class="title">contact</h2>
-          <div class="svg-text">
-            <svg viewBox="0 0 1000 300">
-              <text id="mytext" x="50%" y="50%" text-anchor="middle" fill="none">Hank</text>
-              <use xlink:href="#mytext" class="copy copy1"></use>
-              <use xlink:href="#mytext" class="copy copy2"></use>
-              <use xlink:href="#mytext" class="copy copy3"></use>
-              <use xlink:href="#mytext" class="copy copy4"></use>
-              <use xlink:href="#mytext" class="copy copy5"></use>
-            </svg>
+          <div class="typed">
+            <div id="typed-strings">
+              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
+            </div>
+            <span id="typed"></span>
           </div>
           <div class="social-group">
             <ul>
@@ -228,11 +231,7 @@
           link: "javascript:;"
         },
         {
-          text: "about",
-          link: "javascript:;"
-        },
-        {
-          text: "others",
+          text: "ability",
           link: "javascript:;"
         },
         {
@@ -240,7 +239,11 @@
           link: "javascript:;"
         },
         {
-          text: "contact",
+          text: "others",
+          link: "javascript:;"
+        },
+        {
+          text: "about",
           link: "javascript:;"
         },
       ]
@@ -329,7 +332,7 @@
       ]
 
       const typedText = [
-        '我是前端工程師', '喜歡有趣的網站', '戶外走走體驗大自然', '平常聽聽音樂', '與朋友吃吃喝喝走走', '白天理性', '深夜感性'
+        '我是前端工程師', '喜歡有趣的網站', '是個outdoor咖喜歡戶外', '平常聽聽音樂看看YT', '喜歡與朋友吃吃喝喝走走', '白天理性', '晚上感性'
       ]
 
       new Vue({
@@ -369,6 +372,13 @@
             const containerTitles = document.querySelectorAll(".container h2.title");
             const navHeight = document.querySelector(".nav").offsetHeight;
 
+            if (target === "HOME") {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              })
+            }
+
             containerTitles.forEach(title => {
               if (target === title.innerText) {
                 window.scrollTo({
@@ -402,7 +412,7 @@
             {
               boxClass: 'wow',
               animateClass: 'animated',
-              offset: 200,
+              offset: 350,
               mobile: true,
               live: true
             }
@@ -415,7 +425,10 @@
 
           var typed = new Typed('#typed', {
             stringsElement: '#typed-strings',
-            typeSpeed: 500,
+            typeSpeed: 300,
+            backSpeed: 100,
+            backDelay: 500,
+            startDelay: 1000,
             loop: true,
           });
 
