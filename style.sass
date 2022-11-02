@@ -716,9 +716,17 @@ audio
   background-color: #dfdfdf
   height: 100vh
 
+  +breakpoint(pad-landscape)
+    height: initial
+
   .container
     .row
       .block-left
+        +breakpoint(pad-portrait)
+          width: 100% !important
+          flex: 100%
+          max-width: 100%
+
         .v-card
           .d-flex
             div
@@ -737,6 +745,11 @@ audio
                       color: #ffffff
 
       .block-right
+        +breakpoint(pad-portrait)
+          width: 100% !important
+          flex: 100%
+          max-width: 100%
+          
         .col
           .main-title
             margin-bottom: 20px

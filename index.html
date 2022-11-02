@@ -153,7 +153,7 @@
           <h2 class="title">news</h2>
           <ul>
             <li v-for="(el, i) in news" :key="i">
-              <a :href="el.link" target="_blank">
+              <a :href="el.link">
                 <div class="number">{{ i + 1 }}</div>
                 <div class="date">{{ el.date }}</div>
                 <div class="sub">{{ el.sub }}</div>

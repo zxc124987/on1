@@ -785,6 +785,18 @@ footer {
   background-color: #dfdfdf;
   height: 100vh;
 }
+@media only screen and (max-width: 1024px) {
+  .article-page {
+    height: initial;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .article-page .container .row .block-left {
+    width: 100% !important;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
 .article-page .container .row .block-left .v-card .d-flex div .v-card__title {
   color: #ffffff;
 }
@@ -795,6 +807,13 @@ footer {
 .article-page .container .row .block-left .v-card .d-flex div .v-card__actions button .v-btn__content i {
   font-size: 20px;
   color: #ffffff;
+}
+@media only screen and (max-width: 800px) {
+  .article-page .container .row .block-right {
+    width: 100% !important;
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 .article-page .container .row .block-right .col .main-title {
   margin-bottom: 20px;
