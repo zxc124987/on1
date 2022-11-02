@@ -18,6 +18,7 @@
   <!-- google font -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
     rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 
   <!-- animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -33,6 +34,39 @@
     <v-app id="inspire">
 
       <div class="preload" style="background-image: url('images/loading.gif')"></div>
+
+      <div class="header">
+        <v-app-bar elevation="4" dense>
+          <a href="index.html" class="logo">Hank</a>
+          <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" absolute temporary>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Hank's Nav</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-divider></v-divider>
+
+          <!-- <v-list dense>
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+
+          <v-list dense>
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list> -->
+        </v-navigation-drawer>
+      </div>
 
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -73,11 +107,12 @@
           </h3>
           <div class="img-container">
             <div class="img-box">
-              <div class="img" style="background-image: url('images/S__25264243.jpg')"></div>
+              <!--  style="background-image: url('images/S__25264243.jpg')" -->
+              <div class="img"></div>
             </div>
           </div>
           <div class="info">
-            我叫 <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動校功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
+            <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動校功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
           </div>
         </div>
       </div>
@@ -341,6 +376,7 @@
         data() {
           return {
             overlay: true,
+            drawer: null,
             pictures: pictures,
             navs: navs,
             news: news,

@@ -38,6 +38,38 @@ a
   +breakpoint(mobile-landscape)
     background-size: 35%
 
+.header
+  header
+    height: initial !important
+    padding: 10px
+    background-color: #f2f2f2
+
+    +breakpoint(mobile)
+      padding: 5px
+
+    .v-toolbar__content
+      .logo
+        font-size: 50px
+        font-weight: bold
+        font-family: 'Amatic SC'
+        color: #000000
+
+        +breakpoint(mobile)
+          font-size: 40px
+
+      button
+        .v-btn__content
+          i
+            font-size: 24px
+            color: #707070
+
+.v-navigation-drawer
+  z-index: 999
+  width: 350px !important
+
+  +breakpoint(mobile)
+    width: 250px !important
+
 .swiper-container
   position: relative
   overflow: hidden !important
@@ -45,11 +77,16 @@ a
   .swiper-wrapper
     .swiper-slide
       position: relative
-      padding-top: 43%
+      // padding-top: 43%
+      height: calc(100vh - 68px) !important
       height: 0
 
+      +breakpoint(pad-portrait)
+        // padding-top: 67%
+        height: 60vh !important
+
       +breakpoint(mobile-landscape)
-        padding-top: 67%
+        height: 50vh !important
 
       .img
         position: absolute

@@ -45,18 +45,59 @@ a {
   }
 }
 
+.header header {
+  height: initial !important;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+@media only screen and (max-width: 430px) {
+  .header header {
+    padding: 5px;
+  }
+}
+.header header .v-toolbar__content .logo {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "Amatic SC";
+  color: #000000;
+}
+@media only screen and (max-width: 430px) {
+  .header header .v-toolbar__content .logo {
+    font-size: 40px;
+  }
+}
+.header header .v-toolbar__content button .v-btn__content i {
+  font-size: 24px;
+  color: #707070;
+}
+
+.v-navigation-drawer {
+  z-index: 999;
+  width: 350px !important;
+}
+@media only screen and (max-width: 430px) {
+  .v-navigation-drawer {
+    width: 250px !important;
+  }
+}
+
 .swiper-container {
   position: relative;
   overflow: hidden !important;
 }
 .swiper-container .swiper-wrapper .swiper-slide {
   position: relative;
-  padding-top: 43%;
+  height: calc(100vh - 68px) !important;
   height: 0;
+}
+@media only screen and (max-width: 800px) {
+  .swiper-container .swiper-wrapper .swiper-slide {
+    height: 60vh !important;
+  }
 }
 @media only screen and (max-width: 580px) {
   .swiper-container .swiper-wrapper .swiper-slide {
-    padding-top: 67%;
+    height: 50vh !important;
   }
 }
 .swiper-container .swiper-wrapper .swiper-slide .img {
