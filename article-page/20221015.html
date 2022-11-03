@@ -73,44 +73,54 @@
           <div class="container">
             <div class="row">
               <div class="col-4 block-left">
-                <div class="col" v-for="(el, i) in playList" :key="i">
-                  <v-card :color="el.color" dark>
-                    <div class="d-flex flex-no-wrap justify-space-between">
-                      <div>
-                        <v-card-title class="text-h5">
-                          {{ el.title }}
-                        </v-card-title>
+                <v-sheet color="white" elevation="1" rounded>
+                  <div class="col" v-for="(el, i) in playList" :key="i">
+                    <v-card :color="el.color" dark>
+                      <div class="d-flex flex-no-wrap justify-space-between">
+                        <div>
+                          <v-card-title class="text-h5">
+                            {{ el.title }}
+                          </v-card-title>
 
-                        <v-card-subtitle>{{ el.artist }}</v-card-subtitle>
+                          <v-card-subtitle>{{ el.artist }}</v-card-subtitle>
 
-                        <v-card-actions>
-                          <v-btn text icon @click="playSoundHandler(el.src)">
-                            <!-- <div class="play-text">►</div> -->
-                            <i class="fa-sharp fa-solid fa-play"></i>
-                          </v-btn>
-                        </v-card-actions>
+                          <v-card-actions>
+                            <v-btn text icon @click="playSoundHandler(el.src)">
+                              <!-- <div class="play-text">►</div> -->
+                              <i class="fa-sharp fa-solid fa-play"></i>
+                            </v-btn>
+                          </v-card-actions>
+                        </div>
+                        <v-avatar class="ma-3" size="125" tile>
+                          <v-img :src="el.pic"></v-img>
+                        </v-avatar>
                       </div>
-                      <v-avatar class="ma-3" size="125" tile>
-                        <v-img :src="el.pic"></v-img>
-                      </v-avatar>
-                    </div>
-                  </v-card>
-                </div>
+                    </v-card>
+                  </div>
+                </v-sheet>
               </div>
               <div class="col-8 block-right">
                 <div class="col">
-                  <h2 class="main-title" v-if="article.title">{{ article.title }}</h2>
-                  <div class="main-content" v-if="article.artist">{{ article.artist }}
-                  </div>
-                  <div class="img-container" v-if="article.pic">
-                    <div class="img-box">
-                      <div class="img" :style="{'background-image': 'url('+ article.pic +')'}"></div>
+                  <div class="card-text">
+                    <div class="img-container" v-if="article.pic">
+                      <div class="img-box">
+                        <div class="img" :style="{'background-image': 'url('+ article.pic +')'}"></div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h2 class="main-title" v-if="article.title">{{ article.title }}</h2>
+                      <div class="main-content" v-if="article.artist">{{ article.artist }}
+                      </div>
                     </div>
                   </div>
                   <div class="video-container" v-if="article.src">
                     <div class="video-box">
-                      <!-- <iframe frameborder :src="article.video"></iframe> -->
                       <video controls :src="article.src"></video>
+                    </div>
+                  </div>
+                  <div class="iframe-container" v-if="article.video">
+                    <div class="iframe-box">
+                      <iframe frameborder :src="article.video"></iframe>
                     </div>
                   </div>
                 </div>
@@ -171,7 +181,7 @@
 
       const article = {
         title: "😕",
-        artist: "",
+        artist: "計畫永遠感不上變化",
         pic: "",
         video: ``,
         src: ""
