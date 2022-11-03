@@ -210,6 +210,11 @@
             audio.src = src;
             audio.play();
             audio.style.display = "flex";
+
+            window.scrollTo({
+              top: audio.offsetTop,
+              behavior: "smooth"
+            })
           }
         },
         mounted() {
