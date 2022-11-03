@@ -481,6 +481,16 @@ a {
     font-size: 16px;
   }
 }
+.news .container .row .col .weather-block .area {
+  font-size: 28px;
+  font-weight: 500;
+  color: #7f7f7f;
+  margin-bottom: 30px;
+}
+.news .container .row .col .weather-block .weather ul li {
+  font-size: 18px;
+  color: #707070;
+}
 
 .others .container {
   margin: 50px auto;

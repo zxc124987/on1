@@ -152,6 +152,20 @@
         <div class="container">
           <div class="row">
             <div class="col">
+              <h2 class="title">weathers</h2>
+              <div class="weather-block">
+                <div class="area">高雄市 - {{ location.locationName }}</div>
+                <div class="weather">
+                  <ul>
+                    <li class="main-weather" v-for="(el, i) in weathers" :key="i">
+                      {{ el.description }} - {{ el.time[0].elementValue[0].value }}{{
+                      el.time[0].elementValue[0].measures === "百分比" ? "%" : "°C" }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col">
               <h2 class="title">news</h2>
               <ul>
                 <li v-for="(el, i) in news" :key="i">
@@ -162,9 +176,6 @@
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="col">
-              <h2 class="title">hots</h2>
             </div>
           </div>
         </div>
@@ -248,6 +259,9 @@
   <!-- typed js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
+  <!-- axios -->
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
   <script>
     ; (function () {
       const pictures = [
@@ -324,13 +338,13 @@
           img: "images/S__18063584.jpg",
           title: "期待、失望，初探台南六甲落羽松",
           desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容",
-          link: "about.html"
+          link: "./article-page2/1.html"
         },
         {
           img: "images/IMG_7530.JPG",
           title: "漁光島、回憶，畢業前的拍照",
           desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容",
-          link: "about.html"
+          link: "./article-page2/2.html"
         },
       ]
 
@@ -393,6 +407,9 @@
             contact: contact,
             year: null,
             typedText: typedText,
+
+            location: [],
+            weathers: [],
           }
         },
         methods: {
@@ -431,6 +448,16 @@
                 })
               }
             })
+          },
+          getWeathers() {
+            axios.get(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-067?Authorization=CWB-E8DACB8A-33A2-4249-9FD4-AB96A42E6131`).then(res => {
+              const locations = res.data.records.locations
+              locations.forEach(e => {
+                let location = e.location;
+                this.location = location.filter(e => e.locationName === "苓雅區")[0]
+                this.weathers = this.location.weatherElement.slice(0, 5);
+              })
+            });
           },
         },
         mounted() {
@@ -477,6 +504,8 @@
           });
 
           this.year = new Date().getFullYear();
+
+          this.getWeathers();
 
         },
         destroyed() {
