@@ -193,9 +193,9 @@
                 </div>
               </div>
               <div class="text-container">
-                <div class="text-title">{{ el.title }}</div>
-                <div class="text-desc">{{ el.desc }}</div>
-                <a :href="el.link" class="more">more</a>
+                <div v-if="el.title" class="text-title">{{ el.title }}</div>
+                <div v-if="el.desc" class="text-desc">{{ el.desc }}</div>
+                <a v-if="el.link" :href="el.link" class="more">more</a>
               </div>
             </div>
           </div>
@@ -266,19 +266,25 @@
     ; (function () {
       const pictures = [
         {
-          src: 'https://picsum.photos/1400/1000/?blur=1'
+          src: './images/1.jpg'
         },
         {
-          src: 'https://picsum.photos/1400/1000/?blur=2'
+          src: './images/2.jpg'
         },
         {
-          src: 'https://picsum.photos/1400/1000/?blur=3'
+          src: './images/3.jpg'
         },
         {
-          src: 'https://picsum.photos/1400/1000/?blur=4'
+          src: './images/4.jpg'
         },
         {
-          src: 'https://picsum.photos/1400/1000/?blur=5'
+          src: './images/5.jpg'
+        },
+        {
+          src: './images/6.jpg'
+        },
+        {
+          src: './images/7.jpg'
         },
       ];
 
@@ -330,16 +336,16 @@
 
       const others = [
         {
-          img: "images/S__18063584.jpg",
-          title: "期待、失望，初探台南六甲落羽松",
-          desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容",
-          link: "./article-page2/1.html"
+          img: "./images/8.jpg",
+          title: "別讓自己迷失自己",
+          desc: "",
+          link: ""
         },
         {
-          img: "images/IMG_7530.JPG",
-          title: "漁光島、回憶，畢業前的拍照",
-          desc: "內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內內容內容內容內容容內容內容內容內容內容內容內容內容內容內容內容內容",
-          link: "./article-page2/2.html"
+          img: "./images/9.JPG",
+          title: "努力讓自己成為更好",
+          desc: "",
+          link: ""
         },
       ]
 
@@ -463,6 +469,7 @@
             speed: 400,
             slidesPerView: 1,
             effect: 'fade',
+            loop: true,
             pagination: {
               el: ".swiper-pagination",
               clickable: true

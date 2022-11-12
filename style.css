@@ -111,9 +111,10 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #ffffff;
 }
 .swiper-container .swiper-button {
   position: absolute;
@@ -453,13 +454,13 @@ a {
   color: #818789;
 }
 .news .container .row .col ul li a .number {
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 500;
   color: #b69a68;
   margin-right: 20px;
 }
 .news .container .row .col ul li a .date {
-  font-size: 20px;
+  font-size: 18x;
   font-weight: 500;
   color: #b69a68;
   margin-right: 15px;
@@ -637,6 +638,8 @@ a {
 }
 .others .container .card-group .card:last-child .text-container .text-title {
   margin-left: 0;
+  text-align: right;
+  margin-right: -30px;
 }
 .others .container .card-group .card:last-child.animated .img-container .img-box {
   -webkit-animation: fadeInLeft;
