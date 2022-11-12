@@ -92,7 +92,7 @@
 
       <div class="profile">
         <div class="container">
-          <h2 class="title">profile</h2>
+          <h2 class="title">介紹</h2>
           <h3 class="name">
             <div class="svg-text">
               <svg viewBox="0 0 3000 300">
@@ -118,7 +118,7 @@
 
       <div class="ability">
         <div class="container">
-          <h2 class="title">ability</h2>
+          <h2 class="title">技能</h2>
           <div class="circle-group">
             <div class="circle-box">
               <div class="circle">
@@ -152,7 +152,7 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h2 class="title">weathers</h2>
+              <h2 class="title">天氣</h2>
               <div class="weather-block">
                 <div class="area">高雄市 - {{ location.locationName }}</div>
                 <div class="weather">
@@ -166,7 +166,7 @@
               </div>
             </div>
             <div class="col">
-              <h2 class="title">news</h2>
+              <h2 class="title">文章</h2>
               <ul>
                 <li v-for="(el, i) in news" :key="i">
                   <a :href="el.link">
@@ -183,7 +183,7 @@
 
       <div class="others">
         <div class="container">
-          <h2 class="title">others</h2>
+          <h2 class="title">其他</h2>
           <div class="card-group">
             <div class="card wow" v-for="(el, i) in others" :key="i">
               <div class="img-container rellax" data-rellax-speed="3" data-rellax-mobile-speed="0"
@@ -204,7 +204,7 @@
 
       <div class="about">
         <div class="container">
-          <h2 class="title">about</h2>
+          <h2 class="title">關於</h2>
           <ul>
             <li v-for="(el, i) in about" :key="i">
               <div class="title">{{ el.date }}</div>
@@ -216,7 +216,7 @@
 
       <div class="contact">
         <div class="container">
-          <h2 class="title">contact</h2>
+          <h2 class="title">聯絡我</h2>
           <div class="typed">
             <div id="typed-strings">
               <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
@@ -294,19 +294,19 @@
           link: "javascript:;"
         },
         {
-          text: "ability",
+          text: "技能",
           link: "javascript:;"
         },
         {
-          text: "news",
+          text: "文章",
           link: "javascript:;"
         },
         {
-          text: "others",
+          text: "其他",
           link: "javascript:;"
         },
         {
-          text: "about",
+          text: "關於",
           link: "javascript:;"
         },
       ]
