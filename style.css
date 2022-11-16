@@ -85,6 +85,9 @@ a {
     width: 250px !important;
   }
 }
+.v-navigation-drawer .v-navigation-drawer__content .v-list .v-list-item .v-list-item__content a {
+  color: #333333;
+}
 
 .swiper-container {
   position: relative;
