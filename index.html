@@ -50,10 +50,10 @@
 
           <v-divider></v-divider>
 
-          <v-list dense>
+          <v-list dense v-for="(el, index) in navigation" :key="index">
             <v-list-item link>
               <v-list-item-content>
-                <a href="./others/parallax_scroll_animation.html">Parallax Scroll Animation</a>
+                <a :href="el.link">{{ el.text }}</a>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -390,6 +390,17 @@
         '職業是前端工程師', '喜歡有趣的網站', '看書 - 為了提升自己', '戶外 - 為了釋放平時工作壓力', '喜歡山 - 因為山林裡的涼爽', '喜歡海 - 因為海無邊際遼闊', '喜歡你 - 沒有理由'
       ]
 
+      const navigation = [
+        {
+          text: "Parallax Scroll Animation",
+          link: "./others/parallax_scroll_animation.html"
+        },
+        {
+          text: "Mouse Move Shadow",
+          link: "./others/mouse_move_shadow.html"
+        },
+      ]
+
       new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -405,6 +416,7 @@
             contact: contact,
             year: null,
             typedText: typedText,
+            navigation: navigation,
 
             location: [],
             weathers: [],
