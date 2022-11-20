@@ -9,7 +9,6 @@
   box-shadow: 0 0 3px 3px #e3e3e3;
   display: flex;
   padding: 7px 30px;
-  margin: 20px 0px;
   position: relative;
   /* z-index較大數值的元素會覆蓋其他的較小的數值的z-index */
   z-index: 10;
@@ -18,8 +17,8 @@
 .img-container {
   position: relative;
   width: 110px;
-  opacity: 0;
-  display: none;
+  /* opacity: 0; */
+  /* display: none; */
   margin-top: -60px;
 }
 

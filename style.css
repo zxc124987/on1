@@ -225,6 +225,7 @@ a {
   width: 30%;
   margin: auto;
   margin-bottom: 20px;
+  opacity: 1;
 }
 @media only screen and (max-width: 580px) {
   .profile .container .img-container {
@@ -758,6 +759,61 @@ a {
   font-size: 16px;
 }
 
+.play .container {
+  margin: 50px auto;
+}
+@media only screen and (max-width: 580px) {
+  .play .container {
+    margin: 15px 0px;
+  }
+}
+.play .container .title {
+  font-size: 48px !important;
+  font-weight: bold;
+  font-family: "helvetica neue" !important;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 580px) {
+  .play .container .title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
+}
+.play .container ul li:not(:last-child) {
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 580px) {
+  .play .container ul li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.play .container ul li a {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #333333;
+}
+.play .container ul li a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #b69a68;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform 0.7s ease-in-out 0s;
+}
+.play .container ul li a:hover:before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.contact {
+  background-color: #f2f2f2;
+}
 .contact .container {
   margin: 50px auto;
 }
@@ -955,6 +1011,39 @@ footer {
 }
 .article-page .container .row .block-right .col .video-container {
   margin-bottom: 20px;
+}
+
+.masonry {
+  -moz-column-count: 4;
+       column-count: 4;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+}
+@media only screen and (max-width: 1179px) {
+  .masonry {
+    -moz-column-count: 3;
+         column-count: 3;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .masonry {
+    -moz-column-count: 2;
+         column-count: 2;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .masonry {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
+.masonry .mItem {
+  display: inline-block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+.masonry .mItem img {
+  width: 100%;
 }
 
 @-webkit-keyframes textanimation {
