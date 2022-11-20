@@ -715,32 +715,40 @@ a
         font-size: 30px !important
         margin-bottom: 20px
 
-    .social-group
-      margin-top: 15px
+    .row
+      > .col
+        +breakpoint(mobile-landscape)
+          width: 100%
 
-      ul
-        display: flex
-        align-items: center
-        justify-content: center
+          &:first-child
+            margin: 20px 0px
 
-        li
-          &:not(:last-child)
-            margin-right: 20px
+      .social-group
+        margin-top: 15px
 
-          a
-            font-size: 24px
+        ul
+          display: flex
+          align-items: center
+          justify-content: center
 
-            i
-              transition: all .3s
+          li
+            &:not(:last-child)
+              margin-right: 20px
 
-            &:hover
-              &.facebook
-                i
-                  color: #4867aa
+            a
+              font-size: 24px
 
-              &.instagram
-                i
-                  color: #dd5a3d
+              i
+                transition: all .3s
+
+              &:hover
+                &.facebook
+                  i
+                    color: #4867aa
+
+                &.instagram
+                  i
+                    color: #dd5a3d
 
 .svg-text
   width: 100%

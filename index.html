@@ -26,6 +26,8 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
+  <link rel="stylesheet" href="./styles/music-player.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -215,15 +217,48 @@
             </div>
             <span id="typed"></span>
           </div>
-          <div class="social-group">
-            <ul>
-              <li v-for="(el, i) in contact" :key="i">
-                <a :class="el.text" :href="el.link" target="_blank">
-                  <i :class="el.class"></i>
-                </a>
-              </li>
-            </ul>
-            <!-- <audio src="images/song.mp3" controls loop autoplay></audio> -->
+          <div class="row mt-4">
+            <div class="col social-group">
+              <ul>
+                <li v-for="(el, i) in contact" :key="i">
+                  <a :class="el.text" :href="el.link" target="_blank">
+                    <i :class="el.class"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col music-player">
+              <!-- 專輯名稱、進度條(progress bar)包裹住它們的是music-info -->
+              <div class="music-container" id="music-container">
+                <!-- 專輯音檔 -->
+                <!-- 這邊的來源先放著待會要修飾CSS之後會變成動態的操作JS(可以切換歌曲) -->
+                <audio id="audio" v-for="item in musicPlayer">
+                  <source :src="item.audio">
+                </audio>
+
+                <!-- 專輯封面 -->
+                <div class="img-container" v-for="item in musicPlayer">
+                  <!-- 這邊的來源先放著待會要修飾CSS之後會變成動態的操作JS(切換歌曲時cover也會改) -->
+                  <img :src="item.pic" alt="music-cover" id="cover" />
+                </div>
+
+                <!-- 按鍵區域 -->
+                <div class="navigation">
+                  <div class="music-name">入冬</div>
+                  <div class="option">
+                    <button id="prev" class="action-btn disabled">
+                      <i class="fas fa-backward"></i>
+                    </button>
+                    <button id="play" class="action-btn action-btn-big" @click="playMusic()">
+                      <i class="fas fa-play"></i>
+                    </button>
+                    <button id="next" class="action-btn disabled">
+                      <i class="fas fa-forward"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -253,6 +288,8 @@
 
   <!-- axios -->
   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+  <!-- <script src="./javascripts/music-player.js"></script> -->
 
   <script>
     ; (function () {
@@ -413,6 +450,22 @@
         },
       ]
 
+      const musicPlayer = [
+        {
+          title: "入冬",
+          audio: "./images/入冬.mp3",
+          pic: "./images/入冬.png"
+        },
+        {
+          audio: "./images/春雨.mp3",
+          pic: "./images/春雨.png"
+        },
+        {
+          audio: "./images/秋分.mp3",
+          pic: "./images/春雨.png"
+        },
+      ]
+
       new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -429,6 +482,7 @@
             year: null,
             typedText: typedText,
             navigation: navigation,
+            musicPlayer: musicPlayer,
 
             location: [],
             weathers: [],
@@ -481,6 +535,45 @@
               })
             });
           },
+          playSong() {
+            const musicContainer = document.getElementById("music-container");
+            const playBtn = document.getElementById("play");
+            const audio = document.getElementById("audio");
+            const musicName = document.querySelector(".music-name");
+
+            musicContainer.classList.add("play");
+
+            //並且按下play後圖案會改成pause
+            playBtn.querySelector("i.fas").classList.remove("fa-play");
+            playBtn.querySelector("i.fas").classList.add("fa-pause");
+
+            // 這是audio的方法play可以直接撥放音檔
+            audio.play();
+          },
+          pauseSong() {
+            const musicContainer = document.getElementById("music-container");
+            const playBtn = document.getElementById("play");
+            const audio = document.getElementById("audio");
+
+            musicContainer.classList.remove("play");
+
+            //並且按下pause後圖案會改成play
+            playBtn.querySelector("i.fas").classList.add("fa-play");
+            playBtn.querySelector("i.fas").classList.remove("fa-pause");
+
+            // 這是audio的方法pause可以直接停止音檔
+            audio.pause();
+          },
+          playMusic() {
+            const musicContainer = document.getElementById("music-container");
+            const isPlaying = musicContainer.classList.contains("play");
+
+            if (isPlaying) {
+              this.pauseSong();
+            } else {
+              this.playSong();
+            }
+          },
         },
         mounted() {
           window.addEventListener("load", this.loadingHandler);
@@ -532,6 +625,13 @@
           this.year = new Date().getFullYear();
 
           this.getWeathers();
+
+          const musicContainer = document.getElementById("music-container");
+          const imgContainer = document.querySelector("#music-container .img-container");
+
+          imgContainer.classList.add("active");
+          this.playMusic();
+          this.playSong();
 
         },
         destroyed() {

@@ -1,0 +1,162 @@
+.music-player{
+  width: 50%;
+  margin: auto;
+}
+
+.music-container {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 3px 3px #e3e3e3;
+  display: flex;
+  padding: 7px 30px;
+  margin: 20px 0px;
+  position: relative;
+  /* z-index較大數值的元素會覆蓋其他的較小的數值的z-index */
+  z-index: 10;
+}
+
+.img-container {
+  position: relative;
+  width: 110px;
+  opacity: 0;
+  display: none;
+  margin-top: -60px;
+}
+
+.img-container.active{
+  opacity: 1;
+  display: block;
+}
+
+/* 唱盤指針 使用CSS 偽元素做出子元素圓點當作指針*/
+/* .img-container::after {
+  content: "";
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+} */
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  /* height: 110px; */
+  /* 使用inherit會繼承到他parent的width也就是img-container width:110 */
+  width: inherit;
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* left: 0; */
+
+  /* 動畫設置縮寫: 動畫名稱:rotate 延續3s轉一整圈  線性的加速度 無限重複*/
+  animation: rotate 3s linear infinite;
+
+  /* 控制動畫的播放狀態其實也可以放進縮寫裡面 : 先設定暫停待會用JS開啟*/
+  animation-play-state: paused;
+}
+
+/* 必須使用JS才會切換到這個play狀態 預設設定上面cover是不會跑的 */
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+/* animation裡面的動畫設定可以寫在這邊from到to是一整段動畫過程中使用的元素 */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.navigation .music-name{
+  font-size: 24px;
+  font-weight: bold;
+  align-self: flex-start;
+  padding: 0 10px;
+  margin: 0px 20px;
+}
+
+.navigation .option {
+  display: flex;
+}
+
+.navigation .option > button.disabled{
+  opacity: 0.5;
+  cursor: no-drop;
+}
+
+.action-btn {
+  border: 0;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 10px;
+  margin: 0 20px;
+}
+
+.action-btn.action-btn-big {
+  color: #cdc2d0;
+  font-size: 30px;
+}
+
+/* 當點擊取得焦點後移除邊框 */
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  /* 這邊calc是指100%的width減去40px寬度就是取得的width */
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  /* 這邊的width要用JS控制因為它是音樂進行的進度條 */
+  width: 0%;
+  transition: width 0.1s linear;
+}
