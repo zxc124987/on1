@@ -52,7 +52,7 @@
   /* left: 0; */
 
   /* 動畫設置縮寫: 動畫名稱:rotate 延續3s轉一整圈  線性的加速度 無限重複*/
-  animation: rotate 3s linear infinite;
+  animation: rotate 6s linear infinite;
 
   /* 控制動畫的播放狀態其實也可以放進縮寫裡面 : 先設定暫停待會用JS開啟*/
   animation-play-state: paused;

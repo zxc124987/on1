@@ -261,7 +261,7 @@
 
                 <!-- 按鍵區域 -->
                 <div class="navigation">
-                  <div class="music-name">入冬</div>
+                  <div class="music-name">我們一樣可惜</div>
                   <div class="option">
                     <button id="prev" class="action-btn disabled">
                       <i class="fas fa-backward"></i>
@@ -280,7 +280,7 @@
         </div>
       </div>
 
-      <footer>since 2022 to Copyright &copy; {{ year }} Hank.</footer>
+      <footer>&copy; since 2022 to {{ year }} Copyright By Hank.</footer>
 
   </div>
 
@@ -469,9 +469,9 @@
 
       const musicPlayer = [
         {
-          title: "入冬",
-          audio: "./images/入冬.mp3",
-          pic: "./images/入冬.png"
+          title: "我們一樣可惜",
+          audio: "./images/我們一樣可惜.mp3",
+          pic: "./images/我們一樣可惜.jpg"
         },
       ]
 
@@ -639,8 +639,8 @@
           const imgContainer = document.querySelector("#music-container .img-container");
 
           imgContainer.classList.add("active");
-          this.playMusic();
-          this.playSong();
+          // this.playMusic();
+          // this.playSong();
 
         },
         destroyed() {

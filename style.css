@@ -1047,6 +1047,13 @@ footer {
   width: 100%;
 }
 
+.v-application--wrap > div:nth-child(odd) {
+  background-color: #ffffff;
+}
+.v-application--wrap > div:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
 @-webkit-keyframes textanimation {
   100% {
     stroke-dashoffset: -35%;
