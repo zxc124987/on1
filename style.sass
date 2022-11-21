@@ -954,16 +954,17 @@ audio
   +breakpoint(zone-base)
     column-count: 3
 
-  +breakpoint(pad-landscape)
-    column-count: 2
-
   +breakpoint(mobile-landscape)
-    column-count: 1
+    column-count: 3
+    column-gap: 7px
 
   .mItem
     display: inline-block
     margin-bottom: 16px
     width: 100%
+
+    +breakpoint(mobile-landscape)
+      margin-bottom: 5px
 
     img
       width: 100%
