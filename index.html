@@ -101,16 +101,22 @@
           </h3>
           <div class="img-container">
             <div class="img-box">
-              <div class="img" style="background-image: url('images/S__25264243.jpg')"></div>
+              <div class="img" style="background-image: url('./images/20221126/27.jpg')"></div>
             </div>
           </div>
-          <div class="info">
-            <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動效功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
+          <div class="typed text-center">
+            <div id="typed-strings">
+              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
+            </div>
+            <span id="typed"></span>
           </div>
+          <!-- <div class="info">
+            <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動效功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
+          </div> -->
         </div>
       </div>
 
-      <div class="ability">
+      <!-- <div class="ability">
         <div class="container">
           <h2 class="title">技能</h2>
           <div class="circle-group">
@@ -140,7 +146,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="news">
         <div class="container">
@@ -159,7 +165,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="col">
+            <div class="col">
               <h2 class="title">文章</h2>
               <ul>
                 <li v-for="(el, i) in news" :key="i">
@@ -170,7 +176,7 @@
                   </a>
                 </li>
               </ul>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -208,7 +214,7 @@
         </div>
       </div>
 
-      <!-- <div class="play">
+      <div class="play">
         <div class="container">
           <h2 class="title">回憶</h2>
           <ul>
@@ -221,19 +227,22 @@
             <li>
               <a href="./article-page/20220804.html">20220804 - 花蓮</a>
             </li>
+            <li>
+              <a href="./article-page/20221126.html">20221126 - 清淨</a>
+            </li>
           </ul>
         </div>
-      </div> -->
+      </div>
 
       <div class="contact">
         <div class="container">
           <h2 class="title">聯絡我</h2>
-          <div class="typed">
+          <!-- <div class="typed">
             <div id="typed-strings">
               <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
             </div>
             <span id="typed"></span>
-          </div>
+          </div> -->
           <div class="row mt-4">
             <div class="col social-group">
               <ul>
@@ -332,6 +341,12 @@
         {
           src: './images/7.jpg'
         },
+        {
+          src: './images/10.jpg'
+        },
+        {
+          src: './images/11.jpg'
+        },
       ];
 
       const navs = [
@@ -358,31 +373,31 @@
       ]
 
       const news = [
-        {
-          date: "2022-11-15",
-          sub: "確診週",
-          link: "./article-page/20221115.html"
-        },
+        // {
+        //   date: "2022-11-15",
+        //   sub: "確診週",
+        //   link: "./article-page/20221115.html"
+        // },
         {
           date: "2022-10-22",
-          sub: "我想和你一起",
+          sub: "我想和妳一起",
           link: "./article-page/20221022.html"
         },
-        {
-          date: "2022-10-15",
-          sub: "每年都會有一個考驗",
-          link: "./article-page/20221015.html"
-        },
-        {
-          date: "2022-02-25",
-          sub: "工作的抉擇",
-          link: "./article-page/20220225.html"
-        },
-        {
-          date: "2021-12-31",
-          sub: "工作危機",
-          link: "./article-page/20211231.html"
-        },
+        // {
+        //   date: "2022-10-15",
+        //   sub: "每年都會有一個考驗",
+        //   link: "./article-page/20221015.html"
+        // },
+        // {
+        //   date: "2022-02-25",
+        //   sub: "工作的抉擇",
+        //   link: "./article-page/20220225.html"
+        // },
+        // {
+        //   date: "2021-12-31",
+        //   sub: "工作危機",
+        //   link: "./article-page/20211231.html"
+        // },
       ]
 
       const others = [
@@ -441,7 +456,7 @@
       ]
 
       const typedText = [
-        '職業是前端工程師', '喜歡有趣的網站', '看書 - 為了提升自己', '戶外 - 為了釋放平時工作壓力', '喜歡山 - 因為山林裡的涼爽', '喜歡海 - 因為海無邊際遼闊', '喜歡你 - 沒有理由'
+        '職業是前端工程師', '喜歡有趣的事物', '看書 - 為了提升自己', '戶外 - 為了釋放平時工作壓力', '喜歡山 - 因為山林裡的涼爽', '喜歡海 - 因為海無邊際遼闊', '喜歡你 - 沒有理由'
       ]
 
       const navigation = [
