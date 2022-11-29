@@ -200,7 +200,6 @@ a {
   }
 }
 .profile .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -267,7 +266,6 @@ a {
   }
 }
 .ability .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -411,7 +409,6 @@ a {
   }
 }
 .news .container .row .col .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -505,7 +502,6 @@ a {
   }
 }
 .others .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -697,7 +693,6 @@ a {
   }
 }
 .about .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -768,7 +763,6 @@ a {
   }
 }
 .play .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -823,7 +817,6 @@ a {
   }
 }
 .contact .container .title {
-  font-size: 48px !important;
   font-weight: bold;
   font-family: "helvetica neue" !important;
   text-transform: uppercase;
@@ -1052,6 +1045,9 @@ footer {
 }
 .v-application--wrap > div:nth-child(even) {
   background-color: #f2f2f2;
+}
+.v-application--wrap > div .title {
+  font-size: 36px !important;
 }
 
 @-webkit-keyframes textanimation {
