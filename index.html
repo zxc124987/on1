@@ -76,19 +76,17 @@
         </div> -->
       </div>
 
-      <nav class="nav">
-        <ul>
-          <li v-for="(el, i) in navs" :key="i">
-            <a :href="el.link" @click="scrollToHandler($event)">{{ el.text }}</a>
-          </li>
-        </ul>
-      </nav>
-
       <div class="profile">
         <div class="container">
-          <h2 class="title">介紹</h2>
+          <div class="img-container">
+            <div class="img-box">
+              <!-- ./images/20221126/27.jpg -->
+              <!-- https://picsum.photos/1400/1000/?blur=1 -->
+              <div class="img" style="background-image: url('./images/20221126/27.jpg')"></div>
+            </div>
+          </div>
           <h3 class="name">
-            <div class="svg-text">
+            <div class="svg-text mb-4">
               <svg viewBox="0 0 3000 300">
                 <text id="mytext" x="50%" y="100%" text-anchor="middle" fill="none">Hank</text>
                 <use xlink:href="#mytext" class="copy copy1"></use>
@@ -98,92 +96,18 @@
                 <use xlink:href="#mytext" class="copy copy5"></use>
               </svg>
             </div>
+            <div class="typed text-center">
+              <div id="typed-strings">
+                <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
+              </div>
+              <span id="typed"></span>
+            </div>
           </h3>
-          <div class="img-container">
-            <div class="img-box">
-              <div class="img" style="background-image: url('./images/20221126/27.jpg')"></div>
-            </div>
-          </div>
-          <div class="typed text-center">
-            <div id="typed-strings">
-              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
-            </div>
-            <span id="typed"></span>
-          </div>
-          <!-- <div class="info">
-            <strong>Hank何啟銘</strong>，高中資訊科畢業，大學資工系畢業，大學四年級校外實習一年，初學PHP跟一點MySQL資料庫，畢業後自學前端技術與Javascript、與工具bootstrap，進職場後第一份工作用的是augular9，也是我第一次接觸到前端框架，主要是負責後台開發與前台串接資料，不只學到更多的Javascript還有Typescript，寫了大約八個月後開始接觸網頁設計的切版，多半是負責官方網站的前台、也有少數的後台切版設計，單純切版與網頁動效功能，這時開始接觸到Vue2、但資料則是由後端人員串接，後來就開始鑽研Vue2的應用直到現在。
-          </div> -->
-        </div>
-      </div>
-
-      <!-- <div class="ability">
-        <div class="container">
-          <h2 class="title">技能</h2>
-          <div class="circle-group">
-            <div class="circle-box">
-              <div class="circle">
-                <div class="circle-desc">
-                  <h3 class="circle-desc-title">使用技術</h3>
-                  <div class="circle-desc-content">HTML、CSS、Javascript、Jquery、SASS、ES6、Vue2、Angular9</div>
-                </div>
-              </div>
-            </div>
-            <div class="circle-box">
-              <div class="circle">
-                <div class="circle-desc">
-                  <h3 class="circle-desc-title">使用工具</h3>
-                  <div class="circle-desc-content">GIT、gulp、axios、Trello、HackMD、Notion</div>
-                </div>
-              </div>
-            </div>
-            <div class="circle-box">
-              <div class="circle">
-                <div class="circle-desc">
-                  <h3 class="circle-desc-title">使用套件</h3>
-                  <div class="circle-desc-content">vuetify、vue material、bootstrapVue、admin core ui</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <div class="news">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h2 class="title">天氣</h2>
-              <div class="weather-block">
-                <div class="area">高雄市 - {{ location.locationName }}</div>
-                <div class="weather">
-                  <ul>
-                    <li class="main-weather" v-for="(el, i) in weathers" :key="i">
-                      {{ el.description }} - {{ el.time[0].elementValue[0].value }}{{
-                      el.time[0].elementValue[0].measures === "百分比" ? "%" : "°C" }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <h2 class="title">文章</h2>
-              <ul>
-                <li v-for="(el, i) in news" :key="i">
-                  <a :href="el.link">
-                    <div class="number">{{ i + 1 }}</div>
-                    <div class="date">{{ el.date }}</div>
-                    <div class="sub">{{ el.sub }}</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="others">
         <div class="container">
-          <h2 class="title">其他</h2>
           <div class="card-group">
             <div class="card wow" v-for="(el, i) in others" :key="i">
               <div class="img-container rellax" data-rellax-speed="3" data-rellax-mobile-speed="0"
@@ -202,7 +126,26 @@
         </div>
       </div>
 
-      <div class="about">
+      <!-- <div class="news">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h2 class="title">文章</h2>
+              <ul>
+                <li v-for="(el, i) in news" :key="i">
+                  <a :href="el.link">
+                    <div class="number">{{ i + 1 }}</div>
+                    <div class="date">{{ el.date }}</div>
+                    <div class="sub">{{ el.sub }}</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="about">
         <div class="container">
           <h2 class="title">關於</h2>
           <ul>
@@ -212,9 +155,9 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
-      <div class="play">
+      <!-- <div class="play">
         <div class="container">
           <h2 class="title">回憶</h2>
           <ul>
@@ -232,17 +175,10 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
       <div class="contact">
         <div class="container">
-          <h2 class="title">聯絡我</h2>
-          <!-- <div class="typed">
-            <div id="typed-strings">
-              <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
-            </div>
-            <span id="typed"></span>
-          </div> -->
           <div class="row mt-4">
             <div class="col social-group">
               <ul>
@@ -254,21 +190,15 @@
               </ul>
             </div>
             <div class="col music-player">
-              <!-- 專輯名稱、進度條(progress bar)包裹住它們的是music-info -->
               <div class="music-container" id="music-container">
-                <!-- 專輯音檔 -->
-                <!-- 這邊的來源先放著待會要修飾CSS之後會變成動態的操作JS(可以切換歌曲) -->
                 <audio id="audio" v-for="item in musicPlayer">
                   <source :src="item.audio">
                 </audio>
 
-                <!-- 專輯封面 -->
                 <div class="img-container" v-for="item in musicPlayer">
-                  <!-- 這邊的來源先放著待會要修飾CSS之後會變成動態的操作JS(切換歌曲時cover也會改) -->
                   <img :src="item.pic" alt="music-cover" id="cover" />
                 </div>
 
-                <!-- 按鍵區域 -->
                 <div class="navigation">
                   <div class="music-name">妳對我多重要</div>
                   <div class="option">
@@ -349,29 +279,6 @@
           src: './images/11.jpg'
         },
       ];
-
-      const navs = [
-        {
-          text: "home",
-          link: "javascript:;"
-        },
-        {
-          text: "技能",
-          link: "javascript:;"
-        },
-        {
-          text: "文章",
-          link: "javascript:;"
-        },
-        {
-          text: "其他",
-          link: "javascript:;"
-        },
-        {
-          text: "關於",
-          link: "javascript:;"
-        },
-      ]
 
       const news = [
         // {
@@ -499,7 +406,6 @@
             overlay: true,
             drawer: null,
             pictures: pictures,
-            navs: navs,
             news: news,
             others: others,
             about: about,
@@ -510,24 +416,12 @@
             musicPlayer: musicPlayer,
 
             location: [],
-            weathers: [],
           }
         },
         methods: {
           loadingHandler() {
             const preload = document.querySelector(".preload");
             preload.style.display = "none";
-          },
-          scrollHandler() {
-            const wt = window.scrollY;
-            const nav = document.querySelector(".nav");
-            const carousel = document.querySelector(".swiper-container");
-
-            if (window.scrollY >= carousel.offsetHeight) {
-              nav.classList.add("fixed");
-            } else {
-              nav.classList.remove("fixed");
-            }
           },
           scrollToHandler(e) {
             const target = e.target.innerText;
@@ -549,16 +443,6 @@
                 })
               }
             })
-          },
-          getWeathers() {
-            axios.get(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-067?Authorization=CWB-E8DACB8A-33A2-4249-9FD4-AB96A42E6131`).then(res => {
-              const locations = res.data.records.locations
-              locations.forEach(e => {
-                let location = e.location;
-                this.location = location.filter(e => e.locationName === "苓雅區")[0]
-                this.weathers = this.location.weatherElement.slice(0, 5);
-              })
-            });
           },
           playSong() {
             const musicContainer = document.getElementById("music-container");
@@ -602,7 +486,6 @@
         },
         mounted() {
           window.addEventListener("load", this.loadingHandler);
-          window.addEventListener("scroll", this.scrollHandler);
 
           const swiper = new Swiper('.swiper-container', {
             speed: 400,
@@ -649,19 +532,16 @@
 
           this.year = new Date().getFullYear();
 
-          this.getWeathers();
+          // const musicContainer = document.getElementById("music-container");
+          // const imgContainer = document.querySelector("#music-container .img-container");
 
-          const musicContainer = document.getElementById("music-container");
-          const imgContainer = document.querySelector("#music-container .img-container");
-
-          imgContainer.classList.add("active");
+          // imgContainer.classList.add("active");
           // this.playMusic();
           // this.playSong();
 
         },
         destroyed() {
           window.removeEventListener("load", this.loadingHandler);
-          window.removeEventListener("scroll", this.scrollHandler);
         },
       })
     })()

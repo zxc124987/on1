@@ -45,7 +45,6 @@ a
   header
     height: initial !important
     padding: 10px
-    background-color: #f2f2f2
 
     +breakpoint(mobile)
       padding: 5px
@@ -87,16 +86,16 @@ a
   .swiper-wrapper
     .swiper-slide
       position: relative
-      // padding-top: 43%
-      height: calc(100vh - 68px) !important
+      padding-top: 38%
+      // height: calc(100vh - 68px) !important
       height: 0
 
       +breakpoint(pad-portrait)
-        // padding-top: 67%
-        height: 60vh !important
+        padding-top: 67%
+        // height: 60vh !important
 
       +breakpoint(mobile-landscape)
-        height: 50vh !important
+        // height: 50vh !important
 
       .img
         position: absolute
@@ -107,7 +106,7 @@ a
         background-size: contain
         background-position: center
         background-repeat: no-repeat
-        background-color: #ffffff
+        background-color: #f2f2f2
 
   .swiper-button
     position: absolute
@@ -182,14 +181,7 @@ a
         padding: 15px
 
 .profile
-  background-color: #f2f2f2
-
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
     .title
       // font-size: 48px !important
       font-weight: bold
@@ -215,6 +207,10 @@ a
       margin: auto
       margin-bottom: 20px
       opacity: 1
+      z-index: 99
+
+      +breakpoint(pad-portrait)
+        width: 40%
 
       +breakpoint(mobile-landscape)
         width: 50%
@@ -223,7 +219,7 @@ a
         width: 100%
         padding-top: 100%
         border-radius: 50%
-        box-shadow: 0px 0px 7px #cccccc
+        box-shadow: 0px 0px 7px #3d3d3d
         position: relative
 
         .img
@@ -238,140 +234,19 @@ a
           background-repeat: no-repeat
           border-radius: 50%
 
+    .img-container, .name
+      position: relative
+      top: 50%
+      transform: translateY(-50%)
+
     .info
       max-width: 500px
       margin: auto
       background-color: initial !important
       font-size: 18px !important
 
-.ability
-  .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
-    .title
-      // font-size: 48px !important
-      font-weight: bold
-      font-family: "helvetica neue" !important
-      text-transform: uppercase
-      margin-bottom: 50px
-
-      +breakpoint(mobile-landscape)
-        font-size: 30px !important
-        margin-bottom: 20px
-
-    .circle-group
-      display: flex
-      align-items: center
-      justify-content: center
-
-      +breakpoint(mobile-landscape)
-        flex-flow: column
-
-      .circle-box
-        width: calc(100% / 3 - 10px)
-        padding-top: calc(100% / 3 - 10px)
-        position: relative
-        z-index: 6
-
-        &:not(:last-child)
-          margin-right: 15px
-
-          +breakpoint(mobile-landscape)
-            margin-right: 0
-
-        +breakpoint(mobile-landscape)
-          width: 70%
-          padding-top: 70%
-          margin-bottom: 15px
-
-          &:last-child
-            &:before
-              height: 100%
-
-          &:before
-            content: ""
-            position: absolute
-            top: 0
-            left: -20px
-            transform: translate(-50%, 0)
-            width: 1px
-            height: 110%
-            background-color: #aaaaaa
-
-          &:after
-            content: ""
-            position: absolute
-            top: 50%
-            left: -20px
-            transform: translate(0, -50%)
-            width: 50%
-            height: 1px
-            background-color: #aaaaaa
-            z-index: -1
-
-        &:nth-child(1)
-          .circle
-            background-color: #e96228
-
-        &:nth-child(2)
-          .circle
-            background-color: #2862e9
-
-        &:nth-child(3)
-          .circle
-            background-color: #ead41c
-
-        .circle
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 100%
-          border-radius: 50%
-
-          .circle-desc
-            position: absolute
-            top: 0
-            left: 0
-            width: 100%
-            height: 100%
-            padding: 60px
-
-            +breakpoint(pad-portrait)
-              padding: 30px
-
-            +breakpoint(mobile-landscape)
-              padding: 60px
-
-            +breakpoint(mobile)
-              padding: 30px
-
-            .circle-desc-title
-              font-size: 22px
-              margin-bottom: 15px
-              text-align: center
-
-            .circle-desc-content
-              font-size: 18px
-              overflow: hidden
-              text-overflow: ellipsis
-              display: -webkit-box
-              -webkit-line-clamp: 8
-              -webkit-box-orient: vertical
-              text-align: center
-
 .news
-  background-color: #f2f2f2
-
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
     .row
       .col
         +breakpoint(pad-portrait)
@@ -467,10 +342,7 @@ a
 
 .others
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
+    margin: 50px auto !important
 
     .title
       // font-size: 48px !important
@@ -491,9 +363,9 @@ a
         display: flex
 
         &:not(:last-child)
-          margin-bottom: 100px
+          // margin-bottom: 100px
 
-          +breakpoint(mobile-landscape)
+          +breakpoint(pad-portrait)
             margin-bottom: 50px
 
         .img-container
@@ -514,6 +386,7 @@ a
               background-position: center
               background-repeat: no-repeat
               background-color: #aaa
+              box-shadow: 0px 0px 3px 3px #eee
 
         .text-container
           width: 50%
@@ -630,14 +503,7 @@ a
               margin-right: 0 !important
 
 .about
-  background-color: #f2f2f2
-
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
     .title
       // font-size: 48px !important
       font-weight: bold
@@ -700,17 +566,12 @@ a
 
 .play
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
     .title
-      // font-size: 48px !important
+      font-size: 24px !important
       font-weight: bold
       font-family: "helvetica neue" !important
       text-transform: uppercase
-      margin-bottom: 50px
+      margin-bottom: 40px
 
       +breakpoint(mobile-landscape)
         font-size: 30px !important
@@ -748,14 +609,7 @@ a
               transform: scale(1, 1)
 
 .contact
-  background-color: #f2f2f2
-
   .container
-    margin: 50px auto
-
-    +breakpoint(mobile-landscape)
-      margin: 15px 0px
-
     .title
       // font-size: 48px !important
       font-weight: bold
@@ -972,13 +826,16 @@ audio
 .v-application--wrap
   > div
     &:nth-child(odd)
-      background-color: #ffffff
-
-    &:nth-child(even)
       background-color: #f2f2f2
 
-    .title
-      font-size: 36px !important
+    &:nth-child(even)
+      background-color: #ffffff
+
+    > .container
+      margin: 10px auto
+
+.typed
+  font-size: 18px
 
 // keyframe
 @keyframes textanimation
