@@ -460,6 +460,12 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media only screen and (max-width: 430px) {
+  .memories .container .list-group .list a .avatar .img {
+    width: 60px;
+    height: 60px;
+  }
+}
 .memories .container .list-group .list a .date {
   color: #555555;
   margin-right: 20px;
@@ -587,7 +593,12 @@ a {
   background-repeat: no-repeat;
 }
 .contact .container {
-  margin: 170px auto 30px !important;
+  margin: 220px auto 30px !important;
+}
+@media only screen and (max-width: 430px) {
+  .contact .container {
+    margin: 170px auto 30px !important;
+  }
 }
 .contact .container .title {
   font-weight: bold;

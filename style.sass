@@ -434,6 +434,10 @@ a
               background-repeat: no-repeat
               background-size: cover
 
+              +breakpoint(mobile)
+                width: 60px
+                height: 60px
+
           .date
             color: #555555
             margin-right: 20px
@@ -558,7 +562,10 @@ a
   background-repeat: no-repeat
 
   .container
-    margin: 170px auto 30px !important
+    margin: 220px auto 30px !important
+
+    +breakpoint(mobile)
+      margin: 170px auto 30px !important
 
     .title
       font-weight: bold
