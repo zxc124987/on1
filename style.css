@@ -30,7 +30,7 @@ a {
 .preload {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -199,6 +199,16 @@ a {
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+  position: relative;
+  top: 60%;
+  transform: translateY(-60%);
+}
+@media only screen and (max-width: 430px) {
+  .profile .container .name {
+    position: initial;
+    top: initial;
+    transform: initial;
+  }
 }
 .profile .container .img-container {
   display: flex;
@@ -224,8 +234,17 @@ a {
   width: 100%;
   padding-top: 100%;
   border-radius: 50%;
-  box-shadow: 0px 0px 7px #3d3d3d;
+  box-shadow: 0px 0px 7px #9a9a9a;
   position: relative;
+  top: 60%;
+  transform: translateY(-60%);
+}
+@media only screen and (max-width: 430px) {
+  .profile .container .img-container .img-box {
+    position: initial;
+    top: initial;
+    transform: initial;
+  }
 }
 .profile .container .img-container .img-box .img {
   position: absolute;
@@ -239,111 +258,11 @@ a {
   background-repeat: no-repeat;
   border-radius: 50%;
 }
-.profile .container .img-container, .profile .container .name {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
 .profile .container .info {
   max-width: 500px;
   margin: auto;
   background-color: initial !important;
   font-size: 18px !important;
-}
-
-@media only screen and (max-width: 800px) {
-  .news .container .row .col {
-    width: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
-  .news .container .row .col:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
-.news .container .row .col .title {
-  font-weight: bold;
-  font-family: "helvetica neue" !important;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-@media only screen and (max-width: 580px) {
-  .news .container .row .col .title {
-    font-size: 30px !important;
-    margin-bottom: 20px;
-  }
-}
-.news .container .row .col ul li:not(:last-child) {
-  margin-bottom: 20px;
-}
-@media only screen and (max-width: 580px) {
-  .news .container .row .col ul li:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-.news .container .row .col ul li a {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.news .container .row .col ul li a:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #b69a68;
-  transform: scale(0, 1);
-  transform-origin: right top;
-  transition: transform 0.7s ease-in-out 0s;
-}
-.news .container .row .col ul li a:hover:before {
-  transform-origin: left top;
-  transform: scale(1, 1);
-}
-.news .container .row .col ul li a:hover .date,
-.news .container .row .col ul li a:hover .sub {
-  color: #818789;
-}
-.news .container .row .col ul li a .number {
-  font-size: 28px;
-  font-weight: 500;
-  color: #b69a68;
-  margin-right: 20px;
-}
-.news .container .row .col ul li a .date {
-  font-size: 18x;
-  font-weight: 500;
-  color: #b69a68;
-  margin-right: 15px;
-  transition: all 0.3s;
-}
-@media only screen and (max-width: 430px) {
-  .news .container .row .col ul li a .date {
-    font-size: 18px;
-  }
-}
-.news .container .row .col ul li a .sub {
-  font-size: 18px;
-  font-weight: 500;
-  color: #818789;
-  transition: all 0.3s;
-}
-@media only screen and (max-width: 430px) {
-  .news .container .row .col ul li a .sub {
-    font-size: 16px;
-  }
-}
-.news .container .row .col .weather-block .area {
-  font-size: 28px;
-  font-weight: 500;
-  color: #7f7f7f;
-  margin-bottom: 20px;
-}
-.news .container .row .col .weather-block .weather ul li {
-  font-size: 18px;
-  color: #707070;
 }
 
 .others .container {
@@ -527,112 +446,69 @@ a {
   }
 }
 
-.about .container .title {
-  font-weight: bold;
-  font-family: "helvetica neue" !important;
-  text-transform: uppercase;
-  margin-bottom: 50px;
+.memories .container .list-group .list {
+  border-bottom: 1px solid #e0e0e0;
 }
-@media only screen and (max-width: 580px) {
-  .about .container .title {
-    font-size: 30px !important;
-    margin-bottom: 20px;
-  }
-}
-.about .container ul {
+.memories .container .list-group .list a {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  align-items: center;
+  padding: 15px;
+  transition: all 0.3s;
 }
-.about .container ul li {
-  width: 50%;
-  padding-bottom: 20px;
-  position: relative;
+.memories .container .list-group .list a:hover {
+  background-color: #f2f2f2;
 }
-.about .container ul li:nth-child(odd) {
-  padding-right: 15px;
-  text-align: right;
+.memories .container .list-group .list a .avatar {
+  margin-right: 20px;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 20px;
 }
-.about .container ul li:nth-child(odd):before {
+.memories .container .list-group .list a .avatar:before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   width: 1px;
   height: 100%;
-  background-color: #b69a68;
+  background-color: #aaaaaa;
 }
-.about .container ul li:nth-child(odd) .title {
-  text-align: right;
+.memories .container .list-group .list a .avatar .img {
+  width: 50px;
+  height: 50px;
+  background-color: #aaaaaa;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.about .container ul li:nth-child(even) {
-  align-self: flex-end;
-  padding-left: 15px;
+.memories .container .list-group .list a .date {
+  color: #555555;
+  margin-right: 20px;
+  padding: 13px 10px;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 20px;
 }
-.about .container ul li:nth-child(even):before {
+.memories .container .list-group .list a .date:before {
   content: "";
   position: absolute;
   top: 0;
-  left: -1px;
+  right: 0;
   width: 1px;
   height: 100%;
-  background-color: #b69a68;
+  background-color: #aaaaaa;
 }
-.about .container ul li .title {
-  font-size: 20px !important;
-  font-weight: 600;
-  color: #b69a68;
-  border-bottom: 2px solid #b69a68;
-  margin-bottom: 10px;
-}
-.about .container ul li .desc {
-  font-size: 16px;
+.memories .container .list-group .list a .text {
+  color: #555555;
+  padding: 13px 10px;
 }
 
-.play .container .title {
-  font-size: 24px !important;
-  font-weight: bold;
-  font-family: "helvetica neue" !important;
-  text-transform: uppercase;
-  margin-bottom: 40px;
+.contact {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-@media only screen and (max-width: 580px) {
-  .play .container .title {
-    font-size: 30px !important;
-    margin-bottom: 20px;
-  }
+.contact .container {
+  margin: 50px auto 10px !important;
 }
-.play .container ul li:not(:last-child) {
-  margin-bottom: 20px;
-}
-@media only screen and (max-width: 580px) {
-  .play .container ul li:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-.play .container ul li a {
-  display: flex;
-  align-items: center;
-  position: relative;
-  color: #333333;
-}
-.play .container ul li a:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #b69a68;
-  transform: scale(0, 1);
-  transform-origin: right top;
-  transition: transform 0.7s ease-in-out 0s;
-}
-.play .container ul li a:hover:before {
-  transform-origin: left top;
-  transform: scale(1, 1);
-}
-
 .contact .container .title {
   font-weight: bold;
   font-family: "helvetica neue" !important;
@@ -653,9 +529,6 @@ a {
     margin: 20px 0px;
   }
 }
-.contact .container .row .social-group {
-  margin-top: 15px;
-}
 .contact .container .row .social-group ul {
   display: flex;
   align-items: center;
@@ -668,6 +541,7 @@ a {
   font-size: 24px;
 }
 .contact .container .row .social-group ul li a i {
+  color: #ffffff;
   transition: all 0.3s;
 }
 .contact .container .row .social-group ul li a:hover.facebook i {

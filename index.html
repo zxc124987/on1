@@ -40,10 +40,10 @@
       <div class="header">
         <v-app-bar elevation="4" dense>
           <a href="index.html" class="logo">Hank</a>
-          <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn>
+          <!-- <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn> -->
         </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" absolute temporary>
+        <!-- <v-navigation-drawer v-model="drawer" absolute temporary>
           <v-list-item>
             <v-list-item-content>
               <v-list-item-title>Hank's Nav</v-list-item-title>
@@ -52,14 +52,14 @@
 
           <v-divider></v-divider>
 
-          <v-list dense v-for="(el, index) in navigation" :key="index">
+          <v-list dense v-for="(el, index) in memories" :key="index">
             <v-list-item link>
               <v-list-item-content>
                 <a :href="el.link">{{ el.text }}</a>
               </v-list-item-content>
             </v-list-item>
           </v-list>
-        </v-navigation-drawer>
+        </v-navigation-drawer> -->
       </div>
 
       <div class="swiper-container">
@@ -82,7 +82,7 @@
             <div class="img-box">
               <!-- ./images/20221126/27.jpg -->
               <!-- https://picsum.photos/1400/1000/?blur=1 -->
-              <div class="img" style="background-image: url('./images/20221126/27.jpg')"></div>
+              <div class="img" style="background-image: url('https://picsum.photos/1400/1000/?blur=1')"></div>
             </div>
           </div>
           <h3 class="name">
@@ -126,61 +126,26 @@
         </div>
       </div>
 
-      <!-- <div class="news">
+      <div class="memories">
+        <div class="container">
+          <ul class="list-group">
+            <li class="list" v-for="(item, index) in memories" :key="index">
+              <a :href="item.link">
+                <div class="avatar">
+                  <div class="img" :style="{ 'background-image' : 'url(' + item.pic + ')' }"></div>
+                </div>
+                <div class="date">{{ item.date }}</div>
+                <div class="text">{{ item.text }}</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contact" style="background-image: url('./images/14.jpg');">
         <div class="container">
           <div class="row">
-            <div class="col">
-              <h2 class="title">文章</h2>
-              <ul>
-                <li v-for="(el, i) in news" :key="i">
-                  <a :href="el.link">
-                    <div class="number">{{ i + 1 }}</div>
-                    <div class="date">{{ el.date }}</div>
-                    <div class="sub">{{ el.sub }}</div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- <div class="about">
-        <div class="container">
-          <h2 class="title">關於</h2>
-          <ul>
-            <li v-for="(el, i) in about" :key="i">
-              <div class="title">{{ el.date }}</div>
-              <div class="desc">{{ el.desc }}</div>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-
-      <!-- <div class="play">
-        <div class="container">
-          <h2 class="title">回憶</h2>
-          <ul>
-            <li>
-              <a href="./article-page/20210401.html">20210401 - 南投</a>
-            </li>
-            <li>
-              <a href="./article-page/20211104.html">20211104 - 宜蘭</a>
-            </li>
-            <li>
-              <a href="./article-page/20220804.html">20220804 - 花蓮</a>
-            </li>
-            <li>
-              <a href="./article-page/20221126.html">20221126 - 清淨</a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
-
-      <div class="contact">
-        <div class="container">
-          <div class="row mt-4">
-            <div class="col social-group">
+            <div class="col social-group d-flex" style="align-items: center;justify-content: center">
               <ul>
                 <li v-for="(el, i) in contact" :key="i">
                   <a :class="el.text" :href="el.link" target="_blank">
@@ -191,12 +156,12 @@
             </div>
             <div class="col music-player">
               <div class="music-container" id="music-container">
-                <audio id="audio" v-for="item in musicPlayer">
-                  <source :src="item.audio">
+                <audio id="audio">
+                  <source src="./images/你對我多重要/你對我多重要.mp3">
                 </audio>
 
-                <div class="img-container" v-for="item in musicPlayer">
-                  <img :src="item.pic" alt="music-cover" id="cover" />
+                <div class="img-container">
+                  <img src="./images/你對我多重要/你對我多重要.jpg" alt="music-cover" id="cover" />
                 </div>
 
                 <div class="navigation">
@@ -280,34 +245,6 @@
         },
       ];
 
-      const news = [
-        // {
-        //   date: "2022-11-15",
-        //   sub: "確診週",
-        //   link: "./article-page/20221115.html"
-        // },
-        {
-          date: "2022-10-22",
-          sub: "我想和妳一起",
-          link: "./article-page/20221022.html"
-        },
-        // {
-        //   date: "2022-10-15",
-        //   sub: "每年都會有一個考驗",
-        //   link: "./article-page/20221015.html"
-        // },
-        // {
-        //   date: "2022-02-25",
-        //   sub: "工作的抉擇",
-        //   link: "./article-page/20220225.html"
-        // },
-        // {
-        //   date: "2021-12-31",
-        //   sub: "工作危機",
-        //   link: "./article-page/20211231.html"
-        // },
-      ]
-
       const others = [
         {
           img: "./images/8.jpg",
@@ -320,33 +257,6 @@
           title: "努力讓自己成為更好",
           desc: "",
           link: ""
-        },
-      ]
-
-      const about = [
-        {
-          date: "1996/11",
-          desc: "出生👶🏻"
-        },
-        {
-          date: "2012/6",
-          desc: "高雄市立莊敬國小畢業"
-        },
-        {
-          date: "2014/6",
-          desc: "高雄市大仁國中畢業"
-        },
-        {
-          date: "2016/6",
-          desc: "高雄市立志中學資訊科畢業"
-        },
-        {
-          date: "2019/7",
-          desc: "台南私立崑山大學資訊工程系畢業"
-        },
-        {
-          date: "2020/3",
-          desc: "當兵退伍"
         },
       ]
 
@@ -390,11 +300,30 @@
         },
       ]
 
-      const musicPlayer = [
+      const memories = [
         {
-          title: "你對我多重要",
-          audio: "./images/你對我多重要/你對我多重要.mp3",
-          pic: "./images/你對我多重要/你對我多重要.jpg"
+          pic: "./images/20210401/11.jpg",
+          date: "20210401",
+          text: "南投",
+          link: "./article-page/20210401.html",
+        },
+        {
+          pic: "./images/20211104/14.jpg",
+          date: "20211104",
+          text: "宜蘭",
+          link: "./article-page/20211104.html",
+        },
+        {
+          pic: "./images/20220804/7.jpg",
+          date: "20220804",
+          text: "花蓮",
+          link: "./article-page/20220804.html",
+        },
+        {
+          pic: "./images/20221126/18.jpg",
+          date: "20221126",
+          text: "清淨",
+          link: "./article-page/20221126.html",
         },
       ]
 
@@ -406,14 +335,12 @@
             overlay: true,
             drawer: null,
             pictures: pictures,
-            news: news,
             others: others,
-            about: about,
             contact: contact,
             year: null,
             typedText: typedText,
             navigation: navigation,
-            musicPlayer: musicPlayer,
+            memories: memories,
 
             location: [],
           }
@@ -422,27 +349,6 @@
           loadingHandler() {
             const preload = document.querySelector(".preload");
             preload.style.display = "none";
-          },
-          scrollToHandler(e) {
-            const target = e.target.innerText;
-            const containerTitles = document.querySelectorAll(".container h2.title");
-            const navHeight = document.querySelector(".nav").offsetHeight;
-
-            if (target === "HOME") {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-              })
-            }
-
-            containerTitles.forEach(title => {
-              if (target === title.innerText) {
-                window.scrollTo({
-                  top: title.offsetTop - navHeight - 50,
-                  behavior: "smooth"
-                })
-              }
-            })
           },
           playSong() {
             const musicContainer = document.getElementById("music-container");
@@ -495,15 +401,6 @@
             autoplay: {
               delay: 5000,
             },
-            // pagination: {
-            //   el: ".swiper-pagination",
-            //   clickable: true
-            // },
-            // navigation: {
-            //   nextEl: ".swiper-button-next",
-            //   prevEl: ".swiper-button-prev",
-            //   disabledClass: "disabled"
-            // },
           });
 
           wow = new WOW(
@@ -531,13 +428,6 @@
           });
 
           this.year = new Date().getFullYear();
-
-          // const musicContainer = document.getElementById("music-container");
-          // const imgContainer = document.querySelector("#music-container .img-container");
-
-          // imgContainer.classList.add("active");
-          // this.playMusic();
-          // this.playSong();
 
         },
         destroyed() {

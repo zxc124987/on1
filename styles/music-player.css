@@ -4,9 +4,9 @@
 }
 
 .music-container {
-  background-color: #ffffff;
+  background-color: rgba(255,255,255,0.3);
   border-radius: 15px;
-  box-shadow: 0 0 3px 3px #e3e3e3;
+  box-shadow: 0 0 3px 3px #bebebe;
   display: flex;
   padding: 7px 30px;
   position: relative;

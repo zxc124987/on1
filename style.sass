@@ -26,7 +26,7 @@ a
 .preload
   width: 100%
   height: 100%
-  background-color: #ffffff
+  background-color: #ffffff !important
   position: fixed
   top: 0
   left: 0
@@ -183,7 +183,6 @@ a
 .profile
   .container
     .title
-      // font-size: 48px !important
       font-weight: bold
       font-family: "helvetica neue" !important
       text-transform: uppercase
@@ -198,6 +197,14 @@ a
       font-weight: bold
       text-align: center
       margin-bottom: 10px
+      position: relative
+      top: 60%
+      transform: translateY(-60%)
+
+      +breakpoint(mobile)
+        position: initial
+        top: initial
+        transform: initial
 
     .img-container
       display: flex
@@ -219,8 +226,15 @@ a
         width: 100%
         padding-top: 100%
         border-radius: 50%
-        box-shadow: 0px 0px 7px #3d3d3d
+        box-shadow: 0px 0px 7px #9a9a9a
         position: relative
+        top: 60%
+        transform: translateY(-60%)
+
+        +breakpoint(mobile)
+          position: initial
+          top: initial
+          transform: initial
 
         .img
           position: absolute
@@ -234,111 +248,11 @@ a
           background-repeat: no-repeat
           border-radius: 50%
 
-    .img-container, .name
-      position: relative
-      top: 50%
-      transform: translateY(-50%)
-
     .info
       max-width: 500px
       margin: auto
       background-color: initial !important
       font-size: 18px !important
-
-.news
-  .container
-    .row
-      .col
-        +breakpoint(pad-portrait)
-          width: 100%
-          flex: 100%
-          max-width: 100%
-
-          &:not(:last-child)
-            margin-bottom: 30px
-
-        .title
-          // font-size: 48px !important
-          font-weight: bold
-          font-family: "helvetica neue" !important
-          text-transform: uppercase
-          margin-bottom: 50px
-
-          +breakpoint(mobile-landscape)
-            font-size: 30px !important
-            margin-bottom: 20px
-
-        ul
-          li
-            &:not(:last-child)
-              margin-bottom: 20px
-
-              +breakpoint(mobile-landscape)
-                margin-bottom: 10px
-
-            a
-              display: flex
-              align-items: center
-              position: relative
-
-              &:before
-                content: ""
-                position: absolute
-                bottom: 0
-                left: 0
-                width: 100%
-                height: 2px
-                background-color: #b69a68
-                transform: scale(0, 1)
-                transform-origin: right top
-                transition: transform .7s ease-in-out 0s
-
-              &:hover
-                &:before
-                  transform-origin: left top
-                  transform: scale(1, 1)
-
-                .date,
-                .sub
-                  color: #818789
-
-              .number
-                font-size: 28px
-                font-weight: 500
-                color: #b69a68
-                margin-right: 20px
-
-              .date
-                font-size: 18x
-                font-weight: 500
-                color: #b69a68
-                margin-right: 15px
-                transition: all .3s
-
-                +breakpoint(mobile)
-                  font-size: 18px
-
-              .sub
-                font-size: 18px
-                font-weight: 500
-                color: #818789
-                transition: all .3s
-
-                +breakpoint(mobile)
-                  font-size: 16px
-
-        .weather-block
-          .area
-            font-size: 28px
-            font-weight: 500
-            color: #7f7f7f
-            margin-bottom: 20px
-
-          .weather
-            ul
-              li
-                font-size: 18px
-                color: #707070
 
 .others
   .container
@@ -502,116 +416,74 @@ a
               margin-left: 0 !important
               margin-right: 0 !important
 
-.about
+.memories
   .container
-    .title
-      // font-size: 48px !important
-      font-weight: bold
-      font-family: "helvetica neue" !important
-      text-transform: uppercase
-      margin-bottom: 50px
-
-      +breakpoint(mobile-landscape)
-        font-size: 30px !important
-        margin-bottom: 20px
-
-    ul
-      display: flex
-      flex-direction: column
-      width: 100%
-
-      li
-        width: 50%
-        padding-bottom: 20px
-        position: relative
-
-        &:nth-child(odd)
-          padding-right: 15px
-          text-align: right
-
-          &:before
-            content: ""
-            position: absolute
-            top: 0
-            right: 0
-            width: 1px
-            height: 100%
-            background-color: #b69a68
-
-          .title
-            text-align: right
-
-        &:nth-child(even)
-          align-self: flex-end
-          padding-left: 15px
-
-          &:before
-            content: ""
-            position: absolute
-            top: 0
-            left: -1px
-            width: 1px
-            height: 100%
-            background-color: #b69a68
-
-        .title
-          font-size: 20px !important
-          font-weight: 600
-          color: #b69a68
-          border-bottom: 2px solid #b69a68
-          margin-bottom: 10px
-
-        .desc
-          font-size: 16px
-
-.play
-  .container
-    .title
-      font-size: 24px !important
-      font-weight: bold
-      font-family: "helvetica neue" !important
-      text-transform: uppercase
-      margin-bottom: 40px
-
-      +breakpoint(mobile-landscape)
-        font-size: 30px !important
-        margin-bottom: 20px
-
-    ul
-      li
-        &:not(:last-child)
-          margin-bottom: 20px
-
-          +breakpoint(mobile-landscape)
-            margin-bottom: 10px
+    .list-group
+      .list
+        border-bottom: 1px solid #e0e0e0
 
         a
           display: flex
           align-items: center
-          position: relative
-          color: #333333
-
-          &:before
-            content: ""
-            position: absolute
-            bottom: 0
-            left: 0
-            width: 100%
-            height: 2px
-            background-color: #b69a68
-            transform: scale(0, 1)
-            transform-origin: right top
-            transition: transform .7s ease-in-out 0s
+          padding: 15px
+          transition: all .3s
 
           &:hover
+            background-color: #f2f2f2
+
+          .avatar
+            margin-right: 20px
+            border-right: 1px solid #e0e0e0
+            padding-right: 20px
+            // position: relative
+
             &:before
-              transform-origin: left top
-              transform: scale(1, 1)
+              content: ""
+              position: absolute
+              top: 0
+              right: 0
+              width: 1px
+              height: 100%
+              background-color: #aaaaaa
+
+            .img
+              width: 50px
+              height: 50px
+              background-color: #aaaaaa
+              background-position: center
+              background-repeat: no-repeat
+              background-size: cover
+
+          .date
+            color: #555555
+            margin-right: 20px
+            // position: relative
+            padding: 13px 10px
+            border-right: 1px solid #e0e0e0
+            padding-right: 20px
+
+            &:before
+              content: ""
+              position: absolute
+              top: 0
+              right: 0
+              width: 1px
+              height: 100%
+              background-color: #aaaaaa
+
+          .text
+            color: #555555
+            padding: 13px 10px
 
 .contact
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+
   .container
+    margin: 50px auto 10px !important
+
     .title
-      // font-size: 48px !important
       font-weight: bold
       font-family: "helvetica neue" !important
       text-transform: uppercase
@@ -630,8 +502,6 @@ a
             margin: 20px 0px
 
       .social-group
-        margin-top: 15px
-
         ul
           display: flex
           align-items: center
@@ -645,6 +515,7 @@ a
               font-size: 24px
 
               i
+                color: #ffffff
                 transition: all .3s
 
               &:hover
