@@ -603,6 +603,137 @@ a
         .swiper-button-next
           right: 0
 
+.full-animation
+  background-color: #e0e0e0 !important
+
+  .container
+    width: 100%
+    height: 80vh
+    position: relative
+
+    +breakpoint(mobile-landscape)
+      height: 50vh
+
+    .camera
+      width: 0
+      height: 0
+      border-radius: 50px
+      border: 10px solid #fff
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      opacity: 0
+      animation: ballUp .5s 1s forwards, ballDown .3s 1.5s ease-in forwards, cameraIn .3s 1.8s forwards
+      perspective: 500px
+
+    .lens
+      width: 0px
+      height: 0px
+      border-radius: 50%
+      border: 15px solid #fff
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      opacity: 0
+      animation: lensIn .3s 2s forwards
+
+    .flashLight
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      background-color: #fff
+      transform: scale(0)
+      position: absolute
+      top: 20px
+      right: 20px
+      animation: flashlightIn .3s 2.3s forwards
+
+      &:after
+        content: ''
+        width: 150px
+        height: 150px
+        border-radius: 50%
+        background-color: rgba(255,255,255, 0.5)
+        opacity: 0
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        animation: flash .2s 2.6s
+
+    .picture
+      width: 250px
+      height: 250px
+      background-color: #ccc
+      border: 10px solid #fff
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s
+      overflow: hidden
+      transition: .3s
+
+      &:hover
+        width: 400px
+        height: 400px
+        background-color: #fff
+        border: 0
+        padding: 20px
+
+        .text
+          opacity: 1
+          transform: translate(0, 0)
+
+        ~ .pointer
+          visibility: hidden
+
+      .imageBox
+        width: 100%
+        height: 300px
+        opacity: 0
+        overflow: hidden
+        animation: showImg 1s 4.9s forwards
+        position: relative
+
+        .img
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          background-size: cover
+          background-position: center
+          background-repeat: no-repeat
+
+      .text
+        opacity: 0
+        transition: .5s .2s
+        transform: translate(-20%,0)
+
+        h1
+          font-size: 20px
+          line-height: 40px
+          color: #333
+
+        h2
+          font-size: 16px
+          line-height: 30px
+          color: #333
+
+    .pointer
+      width: 25px
+      height: 25px
+      background-size: cover
+      opacity: 0
+      position: absolute
+      top: 100%
+      left: 50%
+      transform: translate(-50%, 0)
+      animation: pointerHover 1.5s 5.5s infinite
+
 .contact
   background-size: cover
   background-position: center
@@ -846,3 +977,128 @@ audio
 @keyframes textanimation
   100%
     stroke-dashoffset: -35%
+
+@keyframes ballUp
+  0%
+    width: 5px
+    height: 5px
+    top: 50%
+    opacity: 0
+
+  20%
+    opacity: 1
+
+  100%
+    width: 5px
+    height: 5px
+    top: 10%
+    opacity: 1
+
+@keyframes ballDown
+  0%
+    top: 10%
+
+  100%
+    top: 50%
+
+@keyframes cameraIn
+  0%
+    width: 5px
+    height: 5px
+
+  80%
+    width: 250px
+    height: 250px
+
+  100%
+    width: 200px
+    height: 200px
+
+@keyframes lensIn
+  0%
+    width: 0px
+    height: 0px
+    opacity: 0
+
+  20%
+    opacity: 1
+
+  80%
+    width: 120px
+    height: 120px
+
+  100%
+    width: 100px
+    height: 100px
+    opacity: 1
+
+@keyframes flashlightIn
+  0%
+    transform: scale(0)
+
+  100%
+    transform: scale(1)
+
+@keyframes flash
+  0%
+    opacity: 0
+
+  25%
+    opacity: 1
+
+  50%
+    opacity: 0
+
+  75%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@keyframes pictureIn
+  0%
+    width: 120px
+    height: 0
+    opacity: 0
+    top: 100%
+    transform: translate(-50%, 0) rotateX(0deg)
+
+  100%
+    width: 120px
+    height: 120px
+    opacity: 1
+    top: 100%
+    transform: translate(-50%, 0) rotateX(0deg)
+
+@keyframes pictureFlip
+  0%
+    width: 120px
+    height: 120px
+    top: 100%
+    transform: translate(-50%, 0) rotateX(0deg)
+
+  100%
+    top: 50%
+    transform: translate(-50%, -50%) rotateX(360deg)
+
+@keyframes showImg
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes pointerHover
+  0%
+    top: 150%
+    opacity: 0
+
+  20%
+    opacity: 1
+
+  80%
+    opacity: 1
+
+  100%
+    top: 60%
+    opacity: 0
