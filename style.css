@@ -113,28 +113,8 @@ a {
   background-repeat: no-repeat;
   background-color: #f2f2f2;
 }
-.swiper-container .swiper-button {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
-  width: 100%;
-  z-index: 999;
-}
-.swiper-container .swiper-button .swiper-button-prev:after,
-.swiper-container .swiper-button .swiper-button-next:after {
-  color: #ffffff;
-  font-size: 24px;
-}
-.swiper-container .swiper-pagination .swiper-pagination-bullet {
-  width: 30px;
-  height: 3px;
-  border-radius: initial;
-  transition: all 0.5s;
-}
-.swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  height: 4px;
-  background-color: #ffffff;
+.swiper-container .swiper-pagination .swiper-pagination-bullet:only-child {
+  display: block !important;
 }
 
 .nav {
@@ -499,6 +479,106 @@ a {
 .memories .container .list-group .list a .text {
   color: #555555;
   padding: 13px 10px;
+}
+
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide {
+  position: initial;
+  padding-top: initial;
+  height: initial;
+  overflow: hidden;
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img {
+  display: flex;
+}
+@media only screen and (max-width: 580px) {
+  .share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img {
+    flex-wrap: wrap;
+  }
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .text-container {
+  width: 45%;
+}
+@media only screen and (max-width: 580px) {
+  .share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .text-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .text-container .text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: 4px;
+  color: #ffdc79;
+  display: inline-block;
+  background-color: #183578;
+  padding: 10px;
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .img-container {
+  width: 55%;
+  margin-top: initial;
+}
+@media only screen and (max-width: 580px) {
+  .share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .img-container {
+    width: 100%;
+  }
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .img-container .img-box {
+  position: relative;
+  padding-top: 53.6%;
+}
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .img-container .img-box .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #aaaaaa;
+}
+.share-block .container .swiper-container .swiper-pagination {
+  position: relative;
+  margin-top: 15px;
+}
+.share-block .container .swiper-container .swiper-pagination.swiper-pagination-fraction {
+  bottom: 0;
+}
+.share-block .container .swiper-container .swiper-pagination.swiper-pagination-fraction.swiper-pagination-lock {
+  display: block;
+}
+.share-block .container .swiper-container .swiper-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-prev, .share-block .container .swiper-container .swiper-button .swiper-button-next {
+  top: initial;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #555555;
+  border-radius: 50%;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-prev:after, .share-block .container .swiper-container .swiper-button .swiper-button-next:after {
+  font-size: 10px;
+  color: #fefefe;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-prev.swiper-button-lock, .share-block .container .swiper-container .swiper-button .swiper-button-next.swiper-button-lock {
+  display: flex;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-prev.disabled, .share-block .container .swiper-container .swiper-button .swiper-button-next.disabled {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-prev {
+  left: initial;
+  right: 40px;
+}
+.share-block .container .swiper-container .swiper-button .swiper-button-next {
+  right: 0;
 }
 
 .contact {

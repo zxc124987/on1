@@ -62,7 +62,7 @@
         </v-navigation-drawer> -->
       </div>
 
-      <div class="swiper-container">
+      <div class="swiper-container banner">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="pic in pictures">
             <div class="img" :style="{ 'background-image' : 'url(' + pic.src + ')' }"></div>
@@ -82,7 +82,7 @@
             <div class="img-box">
               <!-- ./images/20221126/27.jpg -->
               <!-- https://picsum.photos/1400/1000/?blur=1 -->
-              <div class="img" style="background-image: url('https://picsum.photos/1400/1000/?blur=1')"></div>
+              <div class="img" style="background-image: url('./images/20221126/27.jpg')"></div>
             </div>
           </div>
           <h3 class="name">
@@ -139,6 +139,57 @@
               </a>
             </li>
           </ul>
+        </div>
+      </div>
+
+      <div class="share-block">
+        <div class="container">
+          <div class="swiper-container share">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="text-img">
+                  <div class="text-container">
+                    <div class="text">我想和你一起</div>
+                  </div>
+                  <div class="img-container">
+                    <div class="img-box">
+                      <iframe src="./images/我想和你一起/我想和你一起.mp4" class="img"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="text-img">
+                  <div class="text-container">
+                    <div class="text">我們一樣可惜</div>
+                  </div>
+                  <div class="img-container">
+                    <div class="img-box">
+                      <iframe src="./images/我們一樣可惜/我們一樣可惜.mp4" class="img"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="text-img">
+                  <div class="text-container">
+                    <div class="text">嘉賓</div>
+                  </div>
+                  <div class="img-container">
+                    <div class="img-box">
+                      <iframe src="./images/嘉賓/嘉賓.mp4" class="img"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+  
+            <div class="swiper-button">
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -393,13 +444,28 @@
         mounted() {
           window.addEventListener("load", this.loadingHandler);
 
-          const swiper = new Swiper('.swiper-container', {
+          const swiperBanner = new Swiper('.banner', {
             speed: 400,
             slidesPerView: 1,
             effect: 'fade',
             loop: true,
             autoplay: {
               delay: 5000,
+            },
+          });
+
+          const swiperShare = new Swiper('.share', {
+            speed: 400,
+            slidesPerView: 1,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+              type: "fraction",
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+              disabledClass: "disabled"
             },
           });
 
