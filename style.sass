@@ -507,6 +507,8 @@ a
 
 .share-block
   .container
+    position: relative
+
     .swiper-container
       .swiper-wrapper
         .swiper-slide
@@ -538,6 +540,9 @@ a
                 background-color: #183578
                 padding: 10px
 
+              .desc
+                margin-top: 10px
+
             .img-container
               width: 55%
               margin-top: initial
@@ -560,47 +565,47 @@ a
                   background-position: center
                   background-color: #aaaaaa
 
-      .swiper-pagination
-        position: relative
-        margin-top: 15px
+    .swiper-pagination
+      position: relative
+      margin-top: 15px
 
-        &.swiper-pagination-fraction
-          bottom: 0
-
-          &.swiper-pagination-lock
-            display: block
-
-      .swiper-button
-        position: absolute
+      &.swiper-pagination-fraction
         bottom: 0
-        left: 0
-        width: 100%
 
-        .swiper-button-prev, .swiper-button-next
-          top: initial
-          bottom: 0
-          width: 20px
-          height: 20px
-          background-color: #555555
-          border-radius: 50%
+        &.swiper-pagination-lock
+          display: block
 
-          &:after
-            font-size: 10px
-            color: #fefefe
+    .swiper-button
+      position: absolute
+      // bottom: 0
+      left: 0
+      width: 100%
 
-          &.swiper-button-lock
-            display: flex
+      .swiper-button-prev, .swiper-button-next
+        top: initial
+        bottom: 0
+        width: 20px
+        height: 20px
+        background-color: #555555
+        border-radius: 50%
 
-          &.disabled
-            opacity: 0.5
-            cursor: no-drop
+        &:after
+          font-size: 10px
+          color: #fefefe
 
-        .swiper-button-prev
-          left: initial
-          right: 40px
+        &.swiper-button-lock
+          display: flex
 
-        .swiper-button-next
-          right: 0
+        &.disabled
+          opacity: 0.5
+          cursor: no-drop
+
+      .swiper-button-prev
+        left: initial
+        right: 40px
+
+      .swiper-button-next
+        right: 0
 
 .full-animation
   background-color: #e0e0e0 !important

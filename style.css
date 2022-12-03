@@ -539,6 +539,9 @@ a {
   font-family: "Noto Serif TC", serif;
 }
 
+.share-block .container {
+  position: relative;
+}
 .share-block .container .swiper-container .swiper-wrapper .swiper-slide {
   position: initial;
   padding-top: initial;
@@ -572,6 +575,9 @@ a {
   background-color: #183578;
   padding: 10px;
 }
+.share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .text-container .desc {
+  margin-top: 10px;
+}
 .share-block .container .swiper-container .swiper-wrapper .swiper-slide .text-img .img-container {
   width: 55%;
   margin-top: initial;
@@ -596,23 +602,22 @@ a {
   background-position: center;
   background-color: #aaaaaa;
 }
-.share-block .container .swiper-container .swiper-pagination {
+.share-block .container .swiper-pagination {
   position: relative;
   margin-top: 15px;
 }
-.share-block .container .swiper-container .swiper-pagination.swiper-pagination-fraction {
+.share-block .container .swiper-pagination.swiper-pagination-fraction {
   bottom: 0;
 }
-.share-block .container .swiper-container .swiper-pagination.swiper-pagination-fraction.swiper-pagination-lock {
+.share-block .container .swiper-pagination.swiper-pagination-fraction.swiper-pagination-lock {
   display: block;
 }
-.share-block .container .swiper-container .swiper-button {
+.share-block .container .swiper-button {
   position: absolute;
-  bottom: 0;
   left: 0;
   width: 100%;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-prev, .share-block .container .swiper-container .swiper-button .swiper-button-next {
+.share-block .container .swiper-button .swiper-button-prev, .share-block .container .swiper-button .swiper-button-next {
   top: initial;
   bottom: 0;
   width: 20px;
@@ -620,22 +625,22 @@ a {
   background-color: #555555;
   border-radius: 50%;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-prev:after, .share-block .container .swiper-container .swiper-button .swiper-button-next:after {
+.share-block .container .swiper-button .swiper-button-prev:after, .share-block .container .swiper-button .swiper-button-next:after {
   font-size: 10px;
   color: #fefefe;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-prev.swiper-button-lock, .share-block .container .swiper-container .swiper-button .swiper-button-next.swiper-button-lock {
+.share-block .container .swiper-button .swiper-button-prev.swiper-button-lock, .share-block .container .swiper-button .swiper-button-next.swiper-button-lock {
   display: flex;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-prev.disabled, .share-block .container .swiper-container .swiper-button .swiper-button-next.disabled {
+.share-block .container .swiper-button .swiper-button-prev.disabled, .share-block .container .swiper-button .swiper-button-next.disabled {
   opacity: 0.5;
   cursor: no-drop;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-prev {
+.share-block .container .swiper-button .swiper-button-prev {
   left: initial;
   right: 40px;
 }
-.share-block .container .swiper-container .swiper-button .swiper-button-next {
+.share-block .container .swiper-button .swiper-button-next {
   right: 0;
 }
 
