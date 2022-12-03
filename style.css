@@ -179,16 +179,6 @@ a {
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
-  position: relative;
-  top: 60%;
-  transform: translateY(-60%);
-}
-@media only screen and (max-width: 430px) {
-  .profile .container .name {
-    position: initial;
-    top: initial;
-    transform: initial;
-  }
 }
 .profile .container .img-container {
   display: flex;
@@ -224,16 +214,6 @@ a {
   padding-top: 100%;
   border-radius: 50%;
   box-shadow: 0px 0px 7px #9a9a9a;
-  position: relative;
-  top: 60%;
-  transform: translateY(-60%);
-}
-@media only screen and (max-width: 430px) {
-  .profile .container .img-container .img-box {
-    position: initial;
-    top: initial;
-    transform: initial;
-  }
 }
 .profile .container .img-container .img-box .img {
   position: absolute;
@@ -654,47 +634,69 @@ a {
 }
 @media only screen and (max-width: 580px) {
   .full-animation .container {
-    height: 50vh;
+    height: 55vh;
   }
+}
+.full-animation .container.animated .camera {
+  -webkit-animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
+          animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
+}
+.full-animation .container.animated .camera .lens {
+  -webkit-animation: lensIn 0.3s 2s forwards;
+          animation: lensIn 0.3s 2s forwards;
+}
+.full-animation .container.animated .camera .flashLight {
+  -webkit-animation: flashlightIn 0.3s 2.3s forwards;
+          animation: flashlightIn 0.3s 2.3s forwards;
+}
+.full-animation .container.animated .camera .flashLight:after {
+  -webkit-animation: flash 0.2s 2.6s;
+          animation: flash 0.2s 2.6s;
+}
+.full-animation .container.animated .camera .picture {
+  -webkit-animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
+          animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
+}
+.full-animation .container.animated .camera .picture .imageBox {
+  -webkit-animation: showImg 1s 4.9s forwards;
+          animation: showImg 1s 4.9s forwards;
+}
+.full-animation .container.animated .camera .pointer {
+  -webkit-animation: pointerHover 1.5s 5.5s infinite;
+          animation: pointerHover 1.5s 5.5s infinite;
 }
 .full-animation .container .camera {
   width: 0;
   height: 0;
   border-radius: 50px;
-  border: 10px solid #fff;
+  border: 10px solid #dd5a3d;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  -webkit-animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
-          animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
   perspective: 500px;
 }
 .full-animation .container .lens {
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  border: 15px solid #fff;
+  border: 15px solid #dd5a3d;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  -webkit-animation: lensIn 0.3s 2s forwards;
-          animation: lensIn 0.3s 2s forwards;
 }
 .full-animation .container .flashLight {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #dd5a3d;
   transform: scale(0);
   position: absolute;
   top: 20px;
   right: 20px;
-  -webkit-animation: flashlightIn 0.3s 2.3s forwards;
-          animation: flashlightIn 0.3s 2.3s forwards;
 }
 .full-animation .container .flashLight:after {
   content: "";
@@ -707,8 +709,6 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation: flash 0.2s 2.6s;
-          animation: flash 0.2s 2.6s;
 }
 .full-animation .container .picture {
   width: 250px;
@@ -719,8 +719,6 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
-          animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
   overflow: hidden;
   transition: 0.3s;
 }
@@ -743,8 +741,6 @@ a {
   height: 300px;
   opacity: 0;
   overflow: hidden;
-  -webkit-animation: showImg 1s 4.9s forwards;
-          animation: showImg 1s 4.9s forwards;
   position: relative;
 }
 .full-animation .container .picture .imageBox .img {
@@ -765,24 +761,23 @@ a {
 .full-animation .container .picture .text h1 {
   font-size: 20px;
   line-height: 40px;
-  color: #333;
+  color: #333333;
 }
 .full-animation .container .picture .text h2 {
   font-size: 16px;
   line-height: 30px;
-  color: #333;
+  color: #555555;
 }
 .full-animation .container .pointer {
   width: 25px;
   height: 25px;
+  background-image: url("./images/click.svg");
   background-size: cover;
   opacity: 0;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, 0);
-  -webkit-animation: pointerHover 1.5s 5.5s infinite;
-          animation: pointerHover 1.5s 5.5s infinite;
 }
 
 .contact {
