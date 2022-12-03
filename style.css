@@ -489,8 +489,8 @@ a {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: none;
+     object-fit: none;
 }
 .picture-block .img-container {
   width: 100%;
