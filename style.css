@@ -580,7 +580,6 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #aaaaaa;
 }
 .share-block .container .swiper-pagination {
   position: relative;
@@ -983,8 +982,8 @@ footer {
 }
 
 .masonry {
-  -moz-column-count: 4;
-       column-count: 4;
+  -moz-column-count: 3;
+       column-count: 3;
   -moz-column-gap: 16px;
        column-gap: 16px;
 }
