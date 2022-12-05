@@ -418,6 +418,9 @@ a {
 .memories .container .list-group .list {
   border-bottom: 1px solid #e0e0e0;
 }
+.memories .container .list-group .list:first-child {
+  border-top: 1px solid #e0e0e0;
+}
 .memories .container .list-group .list a {
   display: flex;
   align-items: center;
@@ -491,12 +494,13 @@ a {
   background-position: center;
   -o-object-fit: none;
      object-fit: none;
+  background-color: #f6f6f6;
 }
 .picture-block .img-container {
   width: 100%;
   position: relative;
   margin-top: 0;
-  height: 80vh;
+  height: 85vh;
 }
 @media only screen and (max-width: 580px) {
   .picture-block .img-container {
@@ -896,11 +900,6 @@ footer {
     width: 100% !important;
     flex: 100%;
     max-width: 100%;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .article-page .container .row .block-right .col {
-    border-top: 1px solid #555;
   }
 }
 .article-page .container .row .block-right .col .card-text {

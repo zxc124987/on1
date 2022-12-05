@@ -393,6 +393,9 @@ a
       .list
         border-bottom: 1px solid #e0e0e0
 
+        &:first-child
+          border-top: 1px solid #e0e0e0
+
         a
           display: flex
           align-items: center
@@ -464,12 +467,13 @@ a
     background-size: cover
     background-position: center
     object-fit: none
+    background-color: #f6f6f6
 
   .img-container
     width: 100%
     position: relative
     margin-top: 0
-    height: 80vh
+    height: 85vh
 
     +breakpoint(mobile-landscape)
       height: 60vh
@@ -869,9 +873,6 @@ audio
           max-width: 100%
 
         .col
-          +breakpoint(pad-portrait)
-            border-top: 1px solid #555
-
           .card-text
             display: flex
             margin-bottom: 20px

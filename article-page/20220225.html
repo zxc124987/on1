@@ -27,6 +27,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
   <link rel="stylesheet" href="../style.css">
+
+  <style>
+    html {
+      overflow: auto !important;
+    }
+
+    h2 {
+      font-size: 20px !important;
+    }
+
+    .custom-block {
+      height: calc(100vh - 138px);
+      overflow: auto;
+      padding: 0 10px;
+      margin: 10px 0;
+    }
+
+    .masonry {
+      column-gap: 5px;
+    }
+
+    .masonry .mItem {
+      margin-bottom: 1px;
+    }
+  </style>
 </head>
 
 <body>
@@ -38,99 +63,103 @@
       <div class="header">
         <v-app-bar elevation="4" dense>
           <a href="../index.html" class="logo">Hank</a>
-          <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn>
+          <!-- <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn> -->
         </v-app-bar>
-
-        <v-navigation-drawer v-model="drawer" absolute temporary>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>Hank's Nav</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-divider></v-divider>
-
-          <!-- <v-list dense>
-            <v-list-item link>
-              <v-list-item-content>
-                <v-list-item-title>Home</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-
-          <v-list dense>
-            <v-list-item link>
-              <v-list-item-content>
-                <v-list-item-title>Home</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list> -->
-        </v-navigation-drawer>
       </div>
 
       <div class="body">
         <div class="article-page">
           <div class="container">
             <div class="row">
-              <div class="col-4 block-left">
-                <v-sheet color="white" elevation="1" rounded>
-                  <div class="col" v-for="(el, i) in playList" :key="i">
-                    <v-card :color="el.color" dark>
-                      <div class="d-flex flex-no-wrap justify-space-between">
-                        <div>
-                          <v-card-title class="text-h5">
-                            {{ el.title }}
-                          </v-card-title>
-
-                          <v-card-subtitle>{{ el.artist }}</v-card-subtitle>
-
-                          <v-card-actions>
-                            <v-btn text icon @click="playSoundHandler(el.src)">
-                              <!-- <div class="play-text">►</div> -->
-                              <i class="fa-sharp fa-solid fa-play"></i>
-                            </v-btn>
-                          </v-card-actions>
-                        </div>
-                        <v-avatar class="ma-3" size="125" tile>
-                          <v-img :src="el.pic"></v-img>
-                        </v-avatar>
-                      </div>
-                    </v-card>
-                  </div>
-                </v-sheet>
-              </div>
-              <div class="col-8 block-right">
+              <div class="col-5 block-right">
                 <div class="col">
                   <div class="card-text">
-                    <div class="img-container" v-if="article.pic">
-                      <div class="img-box">
-                        <div class="img" :style="{'background-image': 'url('+ article.pic +')'}"></div>
-                      </div>
-                    </div>
                     <div class="text-container">
-                      <h2 class="main-title" v-if="article.title">{{ article.title }}</h2>
-                      <div class="main-content" v-if="article.artist">{{ article.artist }}
+                      <h2 class="main-title">真的真的好想妳</h2>
+                      <div class="main-content">曾經有一份真誠的愛情放在我面前，我沒有珍惜，等我失去的時候我才後悔莫及。如果給我一個再來一次的機會，我會對妳說我愛你。
+                        <br><br><br>
+
+                      妳還會給我一次機會嗎？
                       </div>
-                    </div>
-                  </div>
-                  <div class="video-container" v-if="article.src">
-                    <div class="video-box">
-                      <video controls :src="article.src"></video>
-                    </div>
-                  </div>
-                  <div class="iframe-container" v-if="article.video">
-                    <div class="iframe-box">
-                      <iframe frameborder :src="article.video"></iframe>
+                      <!-- 曾經有一份真誠的愛情放在我面前，我沒有珍惜，等我失去的時候我才後悔莫及，人世間最痛苦的事莫過於此。如果上天能夠給我一個再來一次的機會，我會對那個女孩子說三個字：我愛你。如果非要在這份愛上加上一個期限，我希望是一萬年 -->
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="col-7 block-left custom-block">
+                <div class="masonry">
+                  <div class="mItem">
+                    <img src="../images/她/1.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/2.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/3.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/4.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/5.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/6.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/7.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/8.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/9.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/10.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/11.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/12.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/13.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/14.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/15.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/16.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/17.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/18.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/19.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/20.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/21.jpg">
+                  </div>
+                  <div class="mItem">
+                    <img src="../images/她/22.jpg">
+                  </div>
+                </div>
+              </div>
             </div>
-            <audio controls class="play-sound" style="width: 100%; display: none;" src=""></audio>
           </div>
         </div>
       </div>
-
       <footer>&copy; since 2022 to {{ year }} Copyright By Hank.</footer>
 
     </v-app>
@@ -155,38 +184,6 @@
   <script>
     ; (function () {
 
-      const playList = [
-        {
-          title: "入冬",
-          artist: "冬天的記憶",
-          color: "#385F73",
-          src: "../images/入冬.mp3",
-          pic: "../images/入冬.png",
-        },
-        {
-          title: "秋分",
-          artist: "秋天的回憶",
-          color: "#1F7087",
-          src: "../images/秋分.mp3",
-          pic: "../images/入冬.png",
-        },
-        {
-          title: "春雨",
-          artist: "獨自的時光",
-          color: "#952175",
-          src: "../images/春雨.mp3",
-          pic: "../images/春雨.png",
-        },
-      ]
-
-      const article = {
-        title: "面臨兩間公司的選擇",
-        artist: "一間是網評極差的公司，另一間則沒有評論，我還是一樣害怕未知的恐懼加上有以往的先例，我還是選擇了後者，一度懷疑自己選擇錯了，但我相信沒有最好的選擇跟最壞的打算。",
-        pic: "",
-        video: "https://www.youtube.com/embed/x0qcqPcEfoc",
-        src: ""
-      }
-
       new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -195,8 +192,6 @@
             overlay: true,
             drawer: null,
             year: null,
-            playList: playList,
-            article: article,
           }
         },
         methods: {
@@ -204,17 +199,6 @@
             const preload = document.querySelector(".preload");
             preload.style.display = "none";
           },
-          playSoundHandler(src) {
-            const audio = document.querySelector(".play-sound");
-            audio.src = src;
-            audio.play();
-            audio.style.display = "flex";
-
-            window.scrollTo({
-              top: audio.offsetTop,
-              behavior: "smooth"
-            })
-          }
         },
         mounted() {
           window.addEventListener("load", this.loadingHandler);
