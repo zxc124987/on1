@@ -1044,7 +1044,8 @@ footer {
     margin-bottom: 0px;
   }
 }
-.masonry .mItem img {
+.masonry .mItem img,
+.masonry .mItem video {
   width: 100%;
 }
 
