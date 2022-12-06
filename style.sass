@@ -30,8 +30,11 @@ a
   width: 25%
   top: 10px
   right: 10px
-  z-index: 888
+  z-index: 888 !important
   transition: all .3s
+
+  +breakpoint(mobile-landscape)
+    width: 50%
 
   .v-alert__wrapper
     .v-alert__content
@@ -982,7 +985,7 @@ audio
 
 .masonry
   column-count: 3
-  column-gap: 16px
+  column-gap: 10px
 
   +breakpoint(zone-base)
     column-count: 3
@@ -993,11 +996,11 @@ audio
 
   .mItem
     display: inline-block
-    margin-bottom: 16px
+    margin-bottom: 3px
     width: 100%
 
     +breakpoint(mobile-landscape)
-      margin-bottom: 5px
+      margin-bottom: 0px
 
     img
       width: 100%
