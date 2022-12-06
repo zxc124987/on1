@@ -1,5 +1,7 @@
 @import "rwd"
 
+$animation-duration: 1.8s
+
 *
   color: #333333
   font-family: 'Noto Sans TC', Roboto, sans-serif
@@ -36,22 +38,43 @@ a
       color: #ffffff !important
 
 .preload
-  width: 100%
-  height: 100%
-  background-color: #ffffff !important
   position: fixed
   top: 0
   left: 0
+  width: 100%
+  height: 100%
+  background-color: #ffffff !important
   z-index: 9999 !important
-  background-size: 15%
-  background-position: center
-  background-repeat: no-repeat
 
-  +breakpoint(pad-landscape)
-    background-size: 20%
+  .line
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 50px
+    height: 10px
+    background: #3498DB
+    border-radius: 5px
+    animation: load $animation-duration ease-in-out infinite
 
-  +breakpoint(mobile-landscape)
-    background-size: 35%
+    &:before, &:after
+      position: absolute
+      display: block
+      content: ""
+      animation: load $animation-duration ease-in-out infinite
+      height: 10px
+      border-radius: 5px
+
+    &:before
+      top: -20px
+      left: 10px
+      width: 40px
+      background: #EF4836
+
+    &:after
+      bottom: -20px
+      width: 35px
+      background: #F5AB35
 
 .header
   header
@@ -1124,3 +1147,13 @@ audio
   100%
     top: 60%
     opacity: 0
+
+@keyframes load
+  0%
+    transform: translateX(40px)
+
+  50%
+    transform: translateX(-30px)
+
+  100%
+    transform: translateX(40px)
