@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
   <!-- google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 
   <!-- animate.css -->
@@ -33,8 +32,30 @@
       overflow: auto !important;
     }
 
+    .article-page{
+      height: calc(100vh - 118px);
+    }
+
     h2 {
-      font-size: 20px !important;
+      font-size: 19px !important;
+    }
+
+    .main-content{
+      display: flex;
+      flex-direction: column;
+      height: 90%;
+    }
+
+    .main-content .text{
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .main-content .desc{
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Noto Serif TC', serif;
+      margin-top: auto;
     }
 
     .custom-block {
@@ -45,11 +66,18 @@
     }
 
     .masonry {
+      /* display: none; */
       column-gap: 5px;
     }
 
     .masonry .mItem {
       margin-bottom: 1px;
+    }
+
+    @media screen and (max-width: 768px){
+      .article-page{
+        height: 100%;
+      }
     }
   </style>
 </head>
@@ -72,11 +100,14 @@
           <div class="container">
             <div class="row">
               <div class="col-5 block-right">
-                <div class="col">
-                  <div class="card-text">
+                <div class="col" style="height: 100%;">
+                  <div class="card-text" style="height: 100%;">
                     <div class="text-container">
                       <h2 class="main-title">真的真的好想妳</h2>
-                      <div class="main-content">曾經有一份真誠的愛情放在我面前，我沒有珍惜，等我失去的時候我才後悔莫及。如果給我一個再來一次的機會，我會對妳說我愛你。 </div>
+                      <div class="main-content">
+                        <div class="text">謝謝妳讓我知道什麼是愛，也有一段很美好的回憶，這輩子都不會忘記，大學有妳的陪伴，中間我們一起經歷了人生很多的第一次，妳剛出社會的那段期間工作有不少壓力，雖然我還沒踏入職場了解那個氛圍，儘管也只能用手機保持聯絡，我也會盡我所能的給你安慰安撫妳，在我當兵最無助最需要人陪的時候有妳，讓我在台北當兵的那段時期有了不一樣的體驗與色彩，每個人都會說當兵很痛苦，但我有別人不一樣的生活，我們真的經過了彼此最深刻最刻苦銘心的時期，如果可以重來，我真的會說我想回到有妳的那段時光。</div>
+                        <div class="desc">曾經有一份真誠的愛情放在我面前，我沒有珍惜，等我失去的時候我才後悔莫及。如果給我一個再來一次的機會，我會對妳說我愛你。</div>
+                      </div>
                       <!-- 曾經有一份真誠的愛情放在我面前，我沒有珍惜，等我失去的時候我才後悔莫及，人世間最痛苦的事莫過於此。如果上天能夠給我一個再來一次的機會，我會對那個女孩子說三個字：我愛你。如果非要在這份愛上加上一個期限，我希望是一萬年 -->
                     </div>
                   </div>

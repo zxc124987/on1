@@ -904,7 +904,6 @@ footer {
 }
 .article-page .container .row .block-right .col .card-text {
   display: flex;
-  margin-bottom: 20px;
 }
 .article-page .container .row .block-right .col .card-text .img-container {
   width: 70%;
@@ -929,8 +928,7 @@ footer {
   background-repeat: no-repeat;
 }
 .article-page .container .row .block-right .col .card-text .text-container {
-  width: calc(100% - 10px);
-  margin-left: 10px;
+  width: 100%;
 }
 .article-page .container .row .block-right .col .card-text .text-container .main-title {
   margin-bottom: 20px;
