@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
   <!-- google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 
   <!-- animate.css -->
@@ -33,6 +35,8 @@
 <body>
   <div id="app">
     <v-app id="inspire">
+
+      <v-alert class="password-error" color="red" type="error" :value="errorAlert">密碼錯誤</v-alert>
 
       <div class="preload" style="background-image: url('images/loading.gif')"></div>
 
@@ -157,7 +161,30 @@
                   <div class="text-container">
                     <div class="text">你和我的時間</div>
                     <div class="desc">
-                      <a href="#!">IMU</a>
+                      <v-dialog v-model="dialog" persistent max-width="290">
+                        <template v-slot:activator="{ on, attrs }">
+                          <a href="javascript:;" v-bind="attrs" v-on="on">
+                            IMU
+                          </a>
+                        </template>
+                        <v-card>
+                          <v-card-title class="text-h5">文章密碼</v-card-title>
+                          <v-card-text>
+                            <v-container>
+                              <v-row>
+                                <v-col cols="12">
+                                  <v-text-field label="請輸入六位數字" v-model="password" required></v-text-field>
+                                </v-col>
+                              </v-row>
+                            </v-container>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn color="green darken-1" text @click="dialog = false">取消</v-btn>
+                            <v-btn color="green darken-1" text @click="submit()">送出</v-btn>
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
                     </div>
                   </div>
                   <div class="img-container">
@@ -183,18 +210,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="swiper-slide">
-                <div class="text-img">
-                  <div class="text-container">
-                    <div class="text">嘉賓</div>
-                  </div>
-                  <div class="img-container">
-                    <div class="img-box">
-                      <iframe src="./images/嘉賓/嘉賓.mp4" class="img"></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
             </div>
             <div class="swiper-pagination"></div>
 
@@ -426,6 +441,10 @@
             memories: memories,
 
             location: [],
+
+            dialog: false,
+            password: "",
+            errorAlert: false,
           }
         },
         methods: {
@@ -470,6 +489,15 @@
               this.pauseSong();
             } else {
               this.playSong();
+            }
+          },
+          submit() {
+            if (this.password === "111528") {
+              window.location.pathname = "/article-page/20221205.html"
+            } else {
+              this.dialog = false;
+              this.errorAlert = true;
+              this.password = "";
             }
           },
         },
@@ -530,6 +558,13 @@
         },
         destroyed() {
           window.removeEventListener("load", this.loadingHandler);
+        },
+        watch: {
+          errorAlert(val) {
+            val && setTimeout(() => {
+              this.errorAlert = false
+            }, 3000)
+          }
         },
       })
     })()

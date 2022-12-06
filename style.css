@@ -27,6 +27,18 @@ a {
   border-radius: 10px;
 }
 
+.v-alert {
+  position: fixed;
+  width: 25%;
+  top: 10px;
+  right: 10px;
+  z-index: 888;
+  transition: all 0.3s;
+}
+.v-alert .v-alert__wrapper .v-alert__content {
+  color: #ffffff !important;
+}
+
 .preload {
   width: 100%;
   height: 100%;
