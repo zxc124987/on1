@@ -298,14 +298,10 @@ a {
 .others .container .card-group .card {
   display: flex;
 }
-@media only screen and (max-width: 800px) {
-  .others .container .card-group .card:not(:last-child) {
-    margin-bottom: 50px;
-  }
-}
 .others .container .card-group .card .img-container {
   width: 50%;
   z-index: 1;
+  transition: all 0.4s;
 }
 .others .container .card-group .card .img-container .img-box {
   position: relative;
@@ -327,6 +323,8 @@ a {
   width: 50%;
   z-index: 2;
   margin: 20px;
+  position: relative;
+  transition: all 0.4s;
 }
 @media only screen and (max-width: 580px) {
   .others .container .card-group .card .text-container {
@@ -336,72 +334,38 @@ a {
 .others .container .card-group .card .text-container .text-title {
   font-size: 24px;
   font-weight: bold;
-  color: #000000;
+  color: #545454;
   text-shadow: 3px 3px 3px #f2f2f2;
   margin-left: -50px;
   margin-bottom: 30px;
+  transition: all 0.4s;
 }
 @media only screen and (max-width: 580px) {
   .others .container .card-group .card .text-container .text-title {
     margin-bottom: 15px;
   }
 }
-.others .container .card-group .card .text-container .text-desc {
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
+.others .container .card-group .card.active:first-child .img-container {
+  left: 0;
 }
-@media only screen and (max-width: 430px) {
-  .others .container .card-group .card .text-container .text-desc {
-    -webkit-line-clamp: 5;
-  }
+.others .container .card-group .card.active:first-child .text-container {
+  right: 0;
 }
-.others .container .card-group .card .text-container .more {
-  display: inline-block;
-  color: #333333;
-  border: 1px solid #333333;
-  padding: 7px 20px;
-  transition: all 1s;
+.others .container .card-group .card.active:last-child .img-container {
+  right: 0;
 }
-.others .container .card-group .card .text-container .more:hover {
-  border: 1px solid #b69a68;
-  color: #a69b68;
-  -webkit-animation: tada;
-          animation: tada;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+.others .container .card-group .card.active:last-child .text-container {
+  left: 0;
 }
-.others .container .card-group .card:first-child.animated .img-container .img-box {
-  -webkit-animation: fadeInRight;
-          animation: fadeInRight;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+.others .container .card-group .card:first-child .img-container {
+  left: -100%;
 }
-.others .container .card-group .card:first-child.animated .text-container .text-title {
-  -webkit-animation: fadeInRight;
-          animation: fadeInRight;
-  -webkit-animation-duration: 0.7s;
-          animation-duration: 0.7s;
-}
-.others .container .card-group .card:first-child.animated .text-container .text-desc {
-  -webkit-animation: fadeInRight;
-          animation: fadeInRight;
-  -webkit-animation-duration: 0.9s;
-          animation-duration: 0.9s;
-}
-.others .container .card-group .card:first-child.animated .text-container .more {
-  -webkit-animation: fadeInRight;
-          animation: fadeInRight;
-  -webkit-animation-duration: 1.1s;
-          animation-duration: 1.1s;
+.others .container .card-group .card:first-child .text-container {
+  right: -100%;
 }
 .others .container .card-group .card:last-child .img-container {
   order: 1;
+  right: -100%;
 }
 @media only screen and (max-width: 580px) {
   .others .container .card-group .card:last-child .img-container {
@@ -411,34 +375,13 @@ a {
 .others .container .card-group .card:last-child .img-container .img-box {
   padding-bottom: 100%;
 }
+.others .container .card-group .card:last-child .text-container {
+  left: -100%;
+}
 .others .container .card-group .card:last-child .text-container .text-title {
   margin-left: 0;
   text-align: right;
   margin-right: -30px;
-}
-.others .container .card-group .card:last-child.animated .img-container .img-box {
-  -webkit-animation: fadeInLeft;
-          animation: fadeInLeft;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-}
-.others .container .card-group .card:last-child.animated .text-container .text-title {
-  -webkit-animation: fadeInLeft;
-          animation: fadeInLeft;
-  -webkit-animation-duration: 0.7s;
-          animation-duration: 0.7s;
-}
-.others .container .card-group .card:last-child.animated .text-container .text-desc {
-  -webkit-animation: fadeInLeft;
-          animation: fadeInLeft;
-  -webkit-animation-duration: 0.9s;
-          animation-duration: 0.9s;
-}
-.others .container .card-group .card:last-child.animated .text-container .more {
-  -webkit-animation: fadeInLeft;
-          animation: fadeInLeft;
-  -webkit-animation-duration: 1.1s;
-          animation-duration: 1.1s;
 }
 @media only screen and (max-width: 580px) {
   .others .container .card-group .card {
@@ -454,6 +397,11 @@ a {
   .others .container .card-group .card .text-container .text-title {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .others .container .card-group .card:not(:last-child) {
+    margin-bottom: 50px;
   }
 }
 
