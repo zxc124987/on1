@@ -294,6 +294,7 @@ a {
 .others .container .card-group {
   max-width: 700px;
   margin: auto;
+  overflow: hidden;
 }
 .others .container .card-group .card {
   display: flex;
