@@ -814,10 +814,16 @@ a
 
 .message
   width: 100%
-  height: 70vh
+  height: 80vh
   display: flex
   align-items: center
   justify-content: center
+
+  +breakpoint(pad-landscape)
+    height: 60vh
+
+  +breakpoint(mobile-landscape)
+    height: 70vh
 
   .container
     .message-box
