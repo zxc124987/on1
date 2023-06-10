@@ -496,7 +496,7 @@
           },
           scrollHandler() {
             const wt = window.scrollY
-            const wb = wt + window.innerHeight
+            const wb = window.scrollY + window.innerHeight
             const cards = document.querySelectorAll(".card");
 
             cards.forEach((card) => {
