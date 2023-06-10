@@ -101,12 +101,12 @@
                 <use xlink:href="#mytext" class="copy copy5"></use>
               </svg>
             </div>
-            <div class="typed text-center">
+            <!-- <div class="typed text-center">
               <div id="typed-strings">
                 <p v-for="(el, i) in typedText" :key="i">{{ el }}</p>
               </div>
               <span id="typed"></span>
-            </div>
+            </div> -->
           </h3>
         </div>
       </div>
@@ -353,37 +353,13 @@
 
       const pictures = [
         {
-          src: './images/與郭/1.JPG'
+          src: './images/19.jpg'
         },
         {
-          src: './images/與郭/2.JPG'
+          src: './images/20.jpg'
         },
         {
-          src: './images/與郭/3.JPG'
-        },
-        {
-          src: './images/與郭/4.JPG'
-        },
-        {
-          src: './images/與郭/5.JPG'
-        },
-        {
-          src: './images/與郭/6.JPG'
-        },
-        {
-          src: './images/與郭/7.JPG'
-        },
-        {
-          src: './images/與郭/8.JPG'
-        },
-        {
-          src: './images/與郭/9.JPG'
-        },
-        {
-          src: './images/與郭/10.JPG'
-        },
-        {
-          src: './images/與郭/11.JPG'
+          src: './images/21.jpg'
         },
       ];
 
@@ -391,13 +367,13 @@
       // 努力讓自己成為更好
       const others = [
         {
-          img: "./images/8.jpg",
+          img: "./images/17.jpg",
           title: "",
           desc: "",
-          link: ""
+          link: "",
         },
         {
-          img: "./images/9.jpg",
+          img: "./images/18.jpg",
           title: "",
           desc: "",
           link: ""
@@ -468,6 +444,12 @@
           date: "20221126",
           text: "清淨",
           link: "./article-page/20221126.html",
+        },
+        {
+          pic: "./images/20230520/11.jpg",
+          date: "20230520",
+          text: "日月潭",
+          link: "./article-page/20230520.html",
         },
       ]
 
@@ -618,14 +600,14 @@
             center: true
           });
 
-          var typed = new Typed('#typed', {
-            stringsElement: '#typed-strings',
-            typeSpeed: 300,
-            backSpeed: 100,
-            backDelay: 500,
-            startDelay: 1000,
-            loop: true,
-          });
+          // var typed = new Typed('#typed', {
+          //   stringsElement: '#typed-strings',
+          //   typeSpeed: 300,
+          //   backSpeed: 100,
+          //   backDelay: 500,
+          //   startDelay: 1000,
+          //   loop: true,
+          // });
 
           this.year = new Date().getFullYear();
 

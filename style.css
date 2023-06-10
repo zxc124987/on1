@@ -68,15 +68,13 @@ a {
   height: 10px;
   background: #3498DB;
   border-radius: 5px;
-  -webkit-animation: load 1.8s ease-in-out infinite;
-          animation: load 1.8s ease-in-out infinite;
+  animation: load 1.8s ease-in-out infinite;
 }
 .preload .line:before, .preload .line:after {
   position: absolute;
   display: block;
   content: "";
-  -webkit-animation: load 1.8s ease-in-out infinite;
-          animation: load 1.8s ease-in-out infinite;
+  animation: load 1.8s ease-in-out infinite;
   height: 10px;
   border-radius: 5px;
 }
@@ -278,6 +276,7 @@ a {
 
 .others .container {
   margin: 50px auto !important;
+  overflow: hidden;
 }
 .others .container .title {
   font-weight: bold;
@@ -294,7 +293,6 @@ a {
 .others .container .card-group {
   max-width: 700px;
   margin: auto;
-  overflow: hidden;
 }
 .others .container .card-group .card {
   display: flex;
@@ -632,32 +630,25 @@ a {
   }
 }
 .full-animation .container.animated .camera {
-  -webkit-animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
-          animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
+  animation: ballUp 0.5s 1s forwards, ballDown 0.3s 1.5s ease-in forwards, cameraIn 0.3s 1.8s forwards;
 }
 .full-animation .container.animated .camera .lens {
-  -webkit-animation: lensIn 0.3s 2s forwards;
-          animation: lensIn 0.3s 2s forwards;
+  animation: lensIn 0.3s 2s forwards;
 }
 .full-animation .container.animated .camera .flashLight {
-  -webkit-animation: flashlightIn 0.3s 2.3s forwards;
-          animation: flashlightIn 0.3s 2.3s forwards;
+  animation: flashlightIn 0.3s 2.3s forwards;
 }
 .full-animation .container.animated .camera .flashLight:after {
-  -webkit-animation: flash 0.2s 2.6s;
-          animation: flash 0.2s 2.6s;
+  animation: flash 0.2s 2.6s;
 }
 .full-animation .container.animated .camera .picture {
-  -webkit-animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
-          animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
+  animation: pictureIn 1s 2.9s backwards, pictureFlip 1s 3.9s;
 }
 .full-animation .container.animated .camera .picture .imageBox {
-  -webkit-animation: showImg 1s 4.9s forwards;
-          animation: showImg 1s 4.9s forwards;
+  animation: showImg 1s 4.9s forwards;
 }
 .full-animation .container.animated .camera .pointer {
-  -webkit-animation: pointerHover 1.5s 5.5s infinite;
-          animation: pointerHover 1.5s 5.5s infinite;
+  animation: pointerHover 1.5s 5.5s infinite;
 }
 .full-animation .container .camera {
   width: 0;
@@ -831,7 +822,7 @@ a {
 
 .message {
   width: 100%;
-  height: 700px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -839,9 +830,9 @@ a {
 .message .container .message-box {
   width: 100%;
   max-width: 500px;
-  height: 600px;
-  min-height: 600px;
-  max-height: 600px;
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
   margin: 0 auto;
   background-color: #82d0fc;
 }
@@ -918,8 +909,7 @@ a {
   stroke-width: 3px;
   stroke-dasharray: 60%;
   stroke-dashoffset: 10%;
-  -webkit-animation: textanimation 7s linear infinite;
-          animation: textanimation 7s linear infinite;
+  animation: textanimation 7s linear infinite;
 }
 
 footer {
@@ -1093,32 +1083,9 @@ footer {
   font-size: 18px;
 }
 
-@-webkit-keyframes textanimation {
-  100% {
-    stroke-dashoffset: -35%;
-  }
-}
-
 @keyframes textanimation {
   100% {
     stroke-dashoffset: -35%;
-  }
-}
-@-webkit-keyframes ballUp {
-  0% {
-    width: 5px;
-    height: 5px;
-    top: 50%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    width: 5px;
-    height: 5px;
-    top: 10%;
-    opacity: 1;
   }
 }
 @keyframes ballUp {
@@ -1138,34 +1105,12 @@ footer {
     opacity: 1;
   }
 }
-@-webkit-keyframes ballDown {
-  0% {
-    top: 10%;
-  }
-  100% {
-    top: 50%;
-  }
-}
 @keyframes ballDown {
   0% {
     top: 10%;
   }
   100% {
     top: 50%;
-  }
-}
-@-webkit-keyframes cameraIn {
-  0% {
-    width: 5px;
-    height: 5px;
-  }
-  80% {
-    width: 250px;
-    height: 250px;
-  }
-  100% {
-    width: 200px;
-    height: 200px;
   }
 }
 @keyframes cameraIn {
@@ -1180,25 +1125,6 @@ footer {
   100% {
     width: 200px;
     height: 200px;
-  }
-}
-@-webkit-keyframes lensIn {
-  0% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    width: 120px;
-    height: 120px;
-  }
-  100% {
-    width: 100px;
-    height: 100px;
-    opacity: 1;
   }
 }
 @keyframes lensIn {
@@ -1220,37 +1146,12 @@ footer {
     opacity: 1;
   }
 }
-@-webkit-keyframes flashlightIn {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 @keyframes flashlightIn {
   0% {
     transform: scale(0);
   }
   100% {
     transform: scale(1);
-  }
-}
-@-webkit-keyframes flash {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 @keyframes flash {
@@ -1270,22 +1171,6 @@ footer {
     opacity: 0;
   }
 }
-@-webkit-keyframes pictureIn {
-  0% {
-    width: 120px;
-    height: 0;
-    opacity: 0;
-    top: 100%;
-    transform: translate(-50%, 0) rotateX(0deg);
-  }
-  100% {
-    width: 120px;
-    height: 120px;
-    opacity: 1;
-    top: 100%;
-    transform: translate(-50%, 0) rotateX(0deg);
-  }
-}
 @keyframes pictureIn {
   0% {
     width: 120px;
@@ -1302,18 +1187,6 @@ footer {
     transform: translate(-50%, 0) rotateX(0deg);
   }
 }
-@-webkit-keyframes pictureFlip {
-  0% {
-    width: 120px;
-    height: 120px;
-    top: 100%;
-    transform: translate(-50%, 0) rotateX(0deg);
-  }
-  100% {
-    top: 50%;
-    transform: translate(-50%, -50%) rotateX(360deg);
-  }
-}
 @keyframes pictureFlip {
   0% {
     width: 120px;
@@ -1326,36 +1199,12 @@ footer {
     transform: translate(-50%, -50%) rotateX(360deg);
   }
 }
-@-webkit-keyframes showImg {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes showImg {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
-  }
-}
-@-webkit-keyframes pointerHover {
-  0% {
-    top: 150%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    top: 60%;
-    opacity: 0;
   }
 }
 @keyframes pointerHover {
@@ -1372,17 +1221,6 @@ footer {
   100% {
     top: 60%;
     opacity: 0;
-  }
-}
-@-webkit-keyframes load {
-  0% {
-    transform: translateX(40px);
-  }
-  50% {
-    transform: translateX(-30px);
-  }
-  100% {
-    transform: translateX(40px);
   }
 }
 @keyframes load {
