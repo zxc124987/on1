@@ -115,7 +115,7 @@
         <div class="container">
           <div class="card-group">
             <div class="card wow" v-for="(el, i) in others" :key="i">
-              <div class="img-container rellax" data-rellax-speed="3" data-rellax-mobile-speed="0"
+              <div class="img-container rellax" data-rellax-speed="2" data-rellax-mobile-speed="0"
                 data-rellax-xs-speed="0">
                 <div class="img-box">
                   <div class="img" :style="{'background-image': 'url('+ el.img +')'}"></div>
@@ -132,9 +132,9 @@
       </div>
 
       <div class="memories">
-        <div class="container">
+        <div class="container mb-0">
           <ul class="list-group">
-            <li class="list" v-for="(item, index) in memories" :key="index">
+            <li class="list" v-for="(item, index) in memoriesList" :key="index">
               <a :href="item.link">
                 <div class="avatar">
                   <div class="img" :style="{ 'background-image' : 'url(' + item.pic + ')' }"></div>
@@ -144,6 +144,7 @@
               </a>
             </li>
           </ul>
+          <v-pagination class="mt-2" v-model="page" :length="paginationLength" @input="changePage" circle></v-pagination>
         </div>
       </div>
 
@@ -467,15 +468,25 @@
             typedText: typedText,
             navigation: navigation,
             memories: memories,
+            memoriesList: [],
 
             location: [],
 
+            page: 1,
+            paginationLength: 1,
             dialog: false,
             password: "",
             errorAlert: false,
           }
         },
         methods: {
+          changePage(val) {
+            const currentPage = (val - 1) * 5;
+            const lastPage = val * 5;
+            // console.log(currentPage, lastPage);
+            this.memoriesList = this.memories.slice(currentPage, lastPage)
+            // console.log(this.memories);
+          },
           debounce(func, wait = 20, immediate = true) {
             let timeout;
             return function () {
@@ -557,6 +568,9 @@
           },
         },
         mounted() {
+          this.paginationLength = Math.ceil(this.memories.length / 5);
+          this.memoriesList = this.memories.slice(0, 5);
+
           window.addEventListener("scroll", this.debounce(this.scrollHandler));
           window.addEventListener("load", this.loadingHandler);
 
