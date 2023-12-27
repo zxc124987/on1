@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20210401</title>
+
+  <!-- vue vuetify -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div id="app">
+    <v-app id="inspire">
+
+      <div class="preload">
+        <div class="line"></div>
+      </div>
+
+      <div class="header">
+        <v-app-bar elevation="4" dense>
+          <a href="../index.html" class="logo">Hank</a>
+          <!-- <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn> -->
+        </v-app-bar>
+
+        <!-- <v-navigation-drawer v-model="drawer" absolute temporary>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Hank's Nav</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-divider></v-divider>
+
+        </v-navigation-drawer> -->
+      </div>
+
+      <div class="body">
+        <div class="container">
+          <div class="masonry">
+            <div class="mItem" v-for="item in pic">
+              <img :src="item.pic">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>&copy; since 2022 to {{ year }} Copyright By Hank.</footer>
+
+    </v-app>
+  </div>
+
+  <!-- vue vuetify -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- wow -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <!-- rellax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+  <!-- typed js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Masonry -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+
+  <script>
+    ; (function () {
+
+      const pic = [
+        {
+          pic: "../images/20210401/2.jpg"
+        },
+        {
+          pic: "../images/20210401/3.jpg"
+        },
+        {
+          pic: "../images/20210401/4.jpg"
+        },
+        {
+          pic: "../images/20210401/5.jpg"
+        },
+        {
+          pic: "../images/20210401/6.jpg"
+        },
+        {
+          pic: "../images/20210401/7.jpg"
+        },
+        {
+          pic: "../images/20210401/8.jpg"
+        },
+        {
+          pic: "../images/20210401/9.jpg"
+        },
+        {
+          pic: "../images/20210401/10.jpg"
+        },
+        {
+          pic: "../images/20210401/11.jpg"
+        },
+        {
+          pic: "../images/20210401/12.jpg"
+        },
+        {
+          pic: "../images/20210401/13.jpg"
+        },
+        {
+          pic: "../images/20210401/14.jpg"
+        },
+        {
+          pic: "../images/20210401/15.jpg"
+        },
+        {
+          pic: "../images/20210401/16.jpg"
+        },
+        {
+          pic: "../images/20210401/17.jpg"
+        },
+        {
+          pic: "../images/20210401/18.jpg"
+        },
+        {
+          pic: "../images/20210401/19.jpg"
+        },
+        {
+          pic: "../images/20210401/20.jpg"
+        },
+        {
+          pic: "../images/20210401/21.jpg"
+        },
+        {
+          pic: "../images/20210401/22.jpg"
+        },
+        {
+          pic: "../images/20210401/23.jpg"
+        },
+        {
+          pic: "../images/20210401/24.jpg"
+        },
+        {
+          pic: "../images/20210401/25.jpg"
+        },
+      ]
+
+      new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+          return {
+            overlay: true,
+            drawer: null,
+            year: null,
+
+            pic: pic,
+          }
+        },
+        methods: {
+          loadingHandler() {
+            const preload = document.querySelector(".preload");
+            preload.style.display = "none";
+          },
+        },
+        mounted() {
+          window.addEventListener("load", this.loadingHandler);
+          this.year = new Date().getFullYear();
+        },
+        destroyed() {
+          window.removeEventListener("load", this.loadingHandler);
+        },
+      })
+    })()
+  </script>
+</body>
+
+</html>

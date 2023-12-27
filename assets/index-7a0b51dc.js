@@ -1,1 +1,0 @@
-import"./CardList.vue_vue_type_style_index_0_scoped_48d0a521_lang-ae17173e.js";import{o as e,c as o}from"./index-54e84a2e.js";const s={__name:"index",setup(r){return(t,a)=>(e(),o("div",null," dashbroad "))}};export{s as default};

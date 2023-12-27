@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- vue vuetify -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../style.css">
+  <title>Mouse Shadow</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <v-app id="inspire">
+      <div class="header">
+        <v-app-bar elevation="4" dense>
+          <a href="../index.html" class="logo">Hank</a>
+          <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" absolute temporary>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Hank's Nav</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-divider></v-divider>
+
+          <v-list dense v-for="(el, index) in navigation" :key="index">
+            <v-list-item link>
+              <v-list-item-content>
+                <a :href="el.link">{{ el.text }}</a>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-navigation-drawer>
+      </div>
+
+      <div class="hero">
+        <h1 contenteditable>🔥WOAH!</h1>
+      </div>
+    </v-app>
+  </div>
+
+  <style>
+    html {
+      color: black;
+      font-family: sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: black;
+    }
+
+    h1 {
+      text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+      font-size: 100px;
+    }
+  </style>
+
+  <!-- vue vuetify -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    (function () {
+      const hero = document.querySelector('.hero');
+      const text = document.querySelector('h1');
+      let moveLength = 100;
+
+      function shadow(e) {
+        let { offsetX, offsetY } = e;
+
+        if (e.target !== this) {
+          offsetX = offsetX + e.target.offsetLeft;
+          offsetY = offsetY + e.target.offsetTop;
+        }
+
+        // 1. offsetX / this.offsetWidth (滑鼠X軸所在位置 / 螢幕總長度)
+        // 2. Math.floor 整數化 * 100 百分比
+        // 3. * 2 - moveLength 算出負值 (-1 ~ 1之間)
+        let moveX = offsetX / this.offsetWidth;
+        let moveY = offsetY / this.offsetHeight;
+
+        moveX = Math.floor(moveX * 100);
+        moveY = Math.floor(moveY * 100);
+
+        moveX = moveX * 2 - moveLength;
+        moveY = moveY * 2 - moveLength;
+
+        // console.log(moveX, moveY)
+
+        text.style.textShadow = `${moveX}px ${moveY}px 0px rgba(168, 0, 0, 0.8),
+        ${moveX * -0.4}px ${moveY * -0.4}px 0px rgba(32, 145, 58, 0.8),
+        ${moveX * 0.4}px ${moveY * 0.4}px 0px rgba(6, 75, 97, 0.8)`
+
+      }
+
+      hero.addEventListener('mousemove', shadow);
+    })()
+
+    const navigation = [
+        {
+          text: "Parallax Scroll Animation",
+          link: "./parallax_scroll_animation.html"
+        },
+        {
+          text: "Mouse Move Shadow",
+          link: "./mouse_move_shadow.html"
+        },
+        {
+          text: "Click and drag",
+          link: "./click_and_drag.html"
+        },
+        {
+          text: "Countdown Timer",
+          link: "./countdown_timer.html"
+        },
+        {
+          text: "Whack A Mole",
+          link: "./whack_a_mole.html"
+        },
+      ]
+    
+    new Vue({
+      el: "#app",
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          drawer: null,
+          navigation: navigation
+        }
+      },
+      mounted() {
+        const hero = document.querySelector('.hero');
+        const text = document.querySelector('h1');
+        let moveLength = 100;
+
+        function shadow(e) {
+          let { offsetX, offsetY } = e;
+
+          if (e.target !== this) {
+            offsetX = offsetX + e.target.offsetLeft;
+            offsetY = offsetY + e.target.offsetTop;
+          }
+
+          // 1. offsetX / this.offsetWidth (滑鼠X軸所在位置 / 螢幕總長度)
+          // 2. Math.floor 整數化 * 100 百分比
+          // 3. * 2 - moveLength 算出負值 (-1 ~ 1之間)
+          let moveX = offsetX / this.offsetWidth;
+          let moveY = offsetY / this.offsetHeight;
+
+          moveX = Math.floor(moveX * 100);
+          moveY = Math.floor(moveY * 100);
+
+          moveX = moveX * 2 - moveLength;
+          moveY = moveY * 2 - moveLength;
+
+          // console.log(moveX, moveY)
+
+          text.style.textShadow = `${moveX}px ${moveY}px 0px rgba(168, 0, 0, 0.7),
+        ${moveX * -0.4}px ${moveY * -0.4}px 0px rgba(32, 145, 58, 0.7),
+        ${moveX * 0.4}px ${moveY * 0.4}px 0px rgba(6, 75, 97, 0.7)`
+
+        }
+
+        hero.addEventListener('mousemove', shadow);
+      },
+      beforeDestroy() {
+        hero.removeEventListener('mousemove', shadow);
+      },
+    })
+
+  </script>
+
+</body>
+
+</html>
