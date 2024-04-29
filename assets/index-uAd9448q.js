@@ -1,1 +1,0 @@
-import{o as r,c as s}from"./index-gblAx57Z.js";const a=(e,t)=>{const c=e.__vccOpts||e;for(const[o,n]of t)c[o]=n;return c},_={},i={class:"img",style:{"background-image":"url('./images/003.jpg')"}};function l(e,t){return r(),s("div",i)}const f=a(_,[["render",l]]);export{f as default};
