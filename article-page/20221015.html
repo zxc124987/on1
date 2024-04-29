@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20221015</title>
+
+  <!-- vue vuetify -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+  <div id="app">
+    <v-app id="inspire">
+
+      <div class="preload">
+        <div class="line"></div>
+      </div>
+
+      <div class="header">
+        <v-app-bar elevation="4" dense>
+          <a href="../index.html" class="logo">Hank</a>
+          <v-btn class="ml-auto" icon @click.stop="drawer = !drawer"><i class="fa-solid fa-bars-staggered"></i></v-btn>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" absolute temporary>
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title>Hank's Nav</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
+          <v-divider></v-divider>
+
+          <!-- <v-list dense>
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+
+          <v-list dense>
+            <v-list-item link>
+              <v-list-item-content>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list> -->
+        </v-navigation-drawer>
+      </div>
+
+      <div class="body">
+        <div class="article-page">
+          <div class="container">
+            <div class="row">
+              <div class="col-4 block-left">
+                <v-sheet color="white" elevation="1" rounded>
+                  <div class="col" v-for="(el, i) in playList" :key="i">
+                    <v-card :color="el.color" dark>
+                      <div class="d-flex flex-no-wrap justify-space-between">
+                        <div>
+                          <v-card-title class="text-h5">
+                            {{ el.title }}
+                          </v-card-title>
+
+                          <v-card-subtitle>{{ el.artist }}</v-card-subtitle>
+
+                          <v-card-actions>
+                            <v-btn text icon @click="playSoundHandler(el.src)">
+                              <!-- <div class="play-text">►</div> -->
+                              <i class="fa-sharp fa-solid fa-play"></i>
+                            </v-btn>
+                          </v-card-actions>
+                        </div>
+                        <v-avatar class="ma-3" size="125" tile>
+                          <v-img :src="el.pic"></v-img>
+                        </v-avatar>
+                      </div>
+                    </v-card>
+                  </div>
+                </v-sheet>
+              </div>
+              <div class="col-8 block-right">
+                <div class="col">
+                  <div class="card-text">
+                    <div class="img-container" v-if="article.pic">
+                      <div class="img-box">
+                        <div class="img" :style="{'background-image': 'url('+ article.pic +')'}"></div>
+                      </div>
+                    </div>
+                    <div class="text-container">
+                      <h2 class="main-title" v-if="article.title">{{ article.title }}</h2>
+                      <div class="main-content" v-if="article.artist">{{ article.artist }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-container" v-if="article.src">
+                    <div class="video-box">
+                      <video controls :src="article.src"></video>
+                    </div>
+                  </div>
+                  <div class="iframe-container" v-if="article.video">
+                    <div class="iframe-box">
+                      <iframe frameborder :src="article.video"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <audio controls class="play-sound" style="width: 100%; display: none;" src=""></audio>
+          </div>
+        </div>
+      </div>
+
+      <footer>&copy; since 2022 to {{ year }} Copyright By Hank.</footer>
+
+    </v-app>
+  </div>
+
+  <!-- vue vuetify -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+  <!-- swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- wow -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+  <!-- rellax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+
+  <!-- typed js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <script>
+    ; (function () {
+
+      const playList = [
+        {
+          title: "入冬",
+          artist: "冬天的記憶",
+          color: "#385F73",
+          src: "../images/入冬.mp3",
+          pic: "../images/入冬.png",
+        },
+        {
+          title: "秋分",
+          artist: "秋天的回憶",
+          color: "#1F7087",
+          src: "../images/秋分.mp3",
+          pic: "../images/入冬.png",
+        },
+        {
+          title: "春雨",
+          artist: "獨自的時光",
+          color: "#952175",
+          src: "../images/春雨.mp3",
+          pic: "../images/春雨.png",
+        },
+      ]
+
+      const article = {
+        title: "😕",
+        artist: "計畫趕不上變化",
+        pic: "",
+        video: ``,
+        src: ""
+      }
+
+      new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+          return {
+            overlay: true,
+            drawer: null,
+            year: null,
+            playList: playList,
+            article: article,
+          }
+        },
+        methods: {
+          loadingHandler() {
+            const preload = document.querySelector(".preload");
+            preload.style.display = "none";
+          },
+          playSoundHandler(src) {
+            const audio = document.querySelector(".play-sound");
+            audio.src = src;
+            audio.play();
+            audio.style.display = "flex";
+
+            window.scrollTo({
+              top: audio.offsetTop,
+              behavior: "smooth"
+            })
+          }
+        },
+        mounted() {
+          window.addEventListener("load", this.loadingHandler);
+          this.year = new Date().getFullYear();
+        },
+        destroyed() {
+          window.removeEventListener("load", this.loadingHandler);
+        },
+      })
+    })()
+  </script>
+</body>
+
+</html>
