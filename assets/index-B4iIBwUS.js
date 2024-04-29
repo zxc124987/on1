@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as c}from"./index-CC1H04a4.js";const o=""+new URL("20240109-CnzFFk1a.jpg",import.meta.url).href,r={},n={src:o,alt:""};function s(_,a){return c(),t("img",n)}const m=e(r,[["render",s]]);export{m as default};
